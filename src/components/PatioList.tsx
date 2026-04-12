@@ -40,22 +40,18 @@ export default function PatioList({
     []
   );
 
-  // Desktop: forward wheel scroll to page when hero visible
+  // Desktop: forward wheel to page scroll when at top of list and hero still visible
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     function handleWheel(e: WheelEvent) {
-      const guide = document.querySelector("[data-guide-anchor]");
-      if (!guide) return;
-      const heroVisible = guide.getBoundingClientRect().top > 1;
       const atListTop = container!.scrollTop <= 0;
       const scrollingUp = e.deltaY < 0;
 
-      if (heroVisible) {
-        e.preventDefault();
-        window.scrollBy({ top: e.deltaY });
-      } else if (scrollingUp && atListTop) {
+      // Only intercept when scrolling up at the very top of the list
+      // to let the user scroll back up to the hero
+      if (scrollingUp && atListTop) {
         e.preventDefault();
         window.scrollBy({ top: e.deltaY });
       } else {

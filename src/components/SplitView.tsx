@@ -39,7 +39,7 @@ export default function SplitView({
   const mobileMapHeight = isMapExpanded ? "h-[55vh]" : "h-[25vh]";
 
   return (
-    <div className="flex flex-col md:flex-row h-[calc(100dvh-52px)] overflow-hidden">
+    <div className="flex flex-col md:flex-row h-dvh overflow-hidden">
       {/* Map - top on mobile, right on desktop */}
       <div
         className={`shrink-0 ${mobileMapHeight} md:h-full md:flex-1 order-1 md:order-2 relative z-10 transition-[height] duration-300 ease-in-out ${
