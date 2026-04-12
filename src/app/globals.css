@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Patio-inspired warm palette */
+  --color-patio-forest: #2d6a4f;
+  --color-patio-forest-light: #40916c;
+  --color-patio-sage: #95d5b2;
+  --color-patio-slate: #4A5568;
+  --color-patio-navy: #1B365D;
+  --color-patio-cream: #FAF7F2;
+  --color-patio-sand: #E8E0D5;
+  --color-patio-bark: #8B6F47;
+  --color-patio-charcoal: #2D2D2D;
+  --color-patio-warm-white: #FEFCF9;
+  --color-patio-sun: #f59e0b;
+  --color-patio-food: #9f1239;
+  --color-patio-space: #0d9488;
+
+  /* Fonts */
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-patio-cream);
+  color: var(--color-patio-charcoal);
+  font-family: var(--font-sans);
+}
+
+/* Hide scrollbar for filter bar on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  font-family: var(--font-sans);
+  z-index: 1;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+  opacity: 0.7;
+}
+
+/* Custom marker transition */
+.patio-marker {
+  transition: all 0.2s ease;
+}
