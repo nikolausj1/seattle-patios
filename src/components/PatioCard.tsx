@@ -58,7 +58,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
         onMouseLeave={() => onHover(null)}
         className={`cursor-pointer rounded-lg overflow-hidden bg-white transition-all duration-200 ${
           isSelected
-            ? "ring-2 ring-patio-forest shadow-lg"
+            ? "ring-2 ring-patio-accent shadow-lg"
             : isHovered
             ? "shadow-md"
             : "shadow-sm hover:shadow-md"
@@ -151,7 +151,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-patio-slate hover:text-patio-forest transition-colors"
+                className="text-patio-slate hover:text-patio-accent transition-colors"
               >
                 Yelp
               </a>
@@ -162,7 +162,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-patio-slate hover:text-patio-forest transition-colors"
+                className="text-patio-slate hover:text-patio-accent transition-colors"
               >
                 Website
               </a>
@@ -172,7 +172,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="text-patio-slate hover:text-patio-forest transition-colors"
+              className="text-patio-slate hover:text-patio-accent transition-colors"
             >
               Directions
             </a>

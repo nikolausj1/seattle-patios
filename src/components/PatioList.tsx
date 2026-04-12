@@ -171,7 +171,7 @@ export default function PatioList({
           Seattle Patios
         </p>
         <div className="text-3xl mb-3">☀️</div>
-        <h2 className="font-serif text-[26px] md:text-[28px] text-patio-navy font-bold leading-tight">
+        <h2 className="font-serif text-[26px] md:text-[28px] text-patio-bark font-bold leading-tight">
           The Best Patios in Seattle
         </h2>
       </div>
@@ -179,7 +179,7 @@ export default function PatioList({
       {/* Editorial intro */}
       <div className="px-1 mb-20">
         <p className="text-[15px] text-patio-slate/80 leading-[1.75]">
-          <span className="font-serif text-[36px] text-patio-navy float-left leading-[1] mr-1.5 mt-0.5">
+          <span className="font-serif text-[36px] text-patio-bark float-left leading-[1] mr-1.5 mt-0.5">
             E
           </span>
           very patio is scored on three things: how much sun it gets, how

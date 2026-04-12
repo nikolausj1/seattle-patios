@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Patio-inspired warm palette */
-  --color-patio-forest: #2d6a4f;
-  --color-patio-forest-light: #40916c;
-  --color-patio-sage: #95d5b2;
+  /* Sunny summer patio palette — warm orange accent */
+  --color-patio-accent: #ea580c;
+  --color-patio-accent-light: #f97316;
+  --color-patio-accent-glow: #fed7aa;
   --color-patio-slate: #4A5568;
-  --color-patio-navy: #1B365D;
-  --color-patio-cream: #FAF7F2;
+  --color-patio-navy: #422006;
+  --color-patio-cream: #FFFBF5;
   --color-patio-sand: #E8E0D5;
-  --color-patio-bark: #8B6F47;
+  --color-patio-bark: #92400e;
   --color-patio-charcoal: #2D2D2D;
   --color-patio-warm-white: #FEFCF9;
   --color-patio-sun: #f59e0b;

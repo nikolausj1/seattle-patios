@@ -1,12 +1,12 @@
 export default function HeroSection() {
   return (
     <section className="relative h-[50vh] min-h-[600px] pt-16 flex items-end">
-      {/* Gradient background — warm greens and earth tones for outdoor patio feel */}
+      {/* Gradient background — warm sunset orange tones */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(160deg, #1a3a2a 0%, #2d6a4f 30%, #40916c 55%, #52b788 75%, #74c69d 100%)",
+            "linear-gradient(160deg, #7c2d12 0%, #c2410c 30%, #ea580c 55%, #f97316 75%, #fb923c 100%)",
         }}
       >
         {/* Subtle texture overlay */}
@@ -19,7 +19,7 @@ export default function HeroSection() {
           }}
         />
         {/* Bottom gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a2a]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#7c2d12]/60 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
