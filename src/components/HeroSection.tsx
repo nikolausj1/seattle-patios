@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="relative h-[50vh] min-h-[600px] pt-16 flex items-end">
+    <section className="relative h-[40vh] min-h-[420px] flex items-end">
       {/* Gradient background — warm sunset orange tones */}
       <div
         className="absolute inset-0"
