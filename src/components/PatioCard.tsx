@@ -4,7 +4,7 @@ import { forwardRef, useMemo } from "react";
 import type { Patio } from "@/types";
 import { useUserLocation } from "@/context/UserLocationContext";
 import { distanceMiles } from "@/utils/distance";
-import { getBarColor, getBarPercent } from "@/utils/scoring";
+import { getBlockColor, getFilledBlocks } from "@/utils/scoring";
 import ImageCarousel from "./ImageCarousel";
 
 interface PatioCardProps {
@@ -45,8 +45,8 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
 
     const scoreCategories: { key: "sun" | "foodDrink" | "theSpace"; label: string; icon: string; score: number; max: number }[] = [
       { key: "sun", label: "Sun", icon: "☀️", score: patio.scores.sun, max: 33 },
-      { key: "foodDrink", label: "Food & Drink", icon: "🍴", score: patio.scores.foodDrink, max: 33 },
-      { key: "theSpace", label: "The Space", icon: "🪑", score: patio.scores.theSpace, max: 34 },
+      { key: "foodDrink", label: "Drinks & Eats", icon: "🍷", score: patio.scores.foodDrink, max: 33 },
+      { key: "theSpace", label: "Vibes", icon: "🤙", score: patio.scores.theSpace, max: 34 },
     ];
 
     return (
@@ -69,26 +69,31 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
           images={patio.images}
           alt={patio.name}
           score={patio.scores.total}
-          isSelected={isSelected}
         />
 
-        {/* Score strip */}
-        <div className="px-4 pt-3 pb-2 space-y-1.5 border-b border-gray-100">
-          {scoreCategories.map((cat) => (
-            <div key={cat.key} className="flex items-center gap-2 text-xs">
-              <span className="w-4 text-center flex-shrink-0">{cat.icon}</span>
-              <span className="w-[80px] text-patio-slate flex-shrink-0">{cat.label}</span>
-              <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full ${getBarColor(cat.key)}`}
-                  style={{ width: `${getBarPercent(cat.score, cat.max)}%` }}
-                />
+        {/* Score blocks (Option AC) */}
+        <div className="px-4 pt-3 pb-3 flex gap-1.5 border-b border-gray-100">
+          {scoreCategories.map((cat) => {
+            const filled = getFilledBlocks(cat.score, cat.max);
+            const color = getBlockColor(cat.key);
+            return (
+              <div key={cat.key} className="flex-1 flex flex-col items-center gap-1">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <span
+                      key={i}
+                      className="w-2 h-3.5 rounded-sm"
+                      style={{ background: i < filled ? color : "#eee" }}
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="text-[11px]">{cat.icon}</span>
+                  <span className="text-[9px] text-gray-400 font-medium">{cat.label}</span>
+                </div>
               </div>
-              <span className="w-[40px] text-right text-patio-slate font-medium flex-shrink-0">
-                {cat.score}/{cat.max}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Content */}
