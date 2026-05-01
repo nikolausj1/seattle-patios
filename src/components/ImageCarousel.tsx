@@ -2,20 +2,17 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { getScoreBadgeBg } from "@/utils/scoring";
 
 interface ImageCarouselProps {
   images: string[];
   alt: string;
   score: number;
-  isSelected: boolean;
 }
 
 export default function ImageCarousel({
   images,
   alt,
   score,
-  isSelected,
 }: ImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -64,8 +61,6 @@ export default function ImageCarousel({
     }
   };
 
-  const badgeBg = isSelected ? getScoreBadgeBg(score) : getScoreBadgeBg(score);
-
   return (
     <div className="relative h-80 overflow-hidden bg-patio-sand">
       {/* Scrollable image container */}
@@ -93,7 +88,7 @@ export default function ImageCarousel({
 
       {/* Score badge */}
       <div
-        className={`absolute top-3 left-3 ${badgeBg} text-white min-w-[36px] h-9 px-2 rounded-full flex items-center justify-center text-sm font-bold z-10 shadow-md`}
+        className="absolute top-3 left-3 bg-patio-accent text-white min-w-[56px] h-14 px-3 rounded-full flex items-center justify-center text-xl font-bold z-10 shadow-md"
       >
         {score}
       </div>

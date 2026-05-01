@@ -12,22 +12,16 @@ export function getScoreBgColor(total: number): string {
   return "bg-gray-50 border-gray-200";
 }
 
-export function getScoreBadgeBg(total: number): string {
-  if (total >= 80) return "bg-emerald-600";
-  if (total >= 60) return "bg-amber-500";
-  return "bg-gray-500";
+export function getFilledBlocks(score: number, max: number, total = 10): number {
+  return Math.max(0, Math.min(total, Math.round((score / max) * total)));
 }
 
-export function getBarColor(category: "sun" | "foodDrink" | "theSpace"): string {
+export function getBlockColor(category: "sun" | "foodDrink" | "theSpace"): string {
   switch (category) {
-    case "sun": return "bg-amber-400";
-    case "foodDrink": return "bg-rose-700";
-    case "theSpace": return "bg-teal-600";
+    case "sun": return "#F4A66C";
+    case "foodDrink": return "#1EB99D";
+    case "theSpace": return "#F4726C";
   }
-}
-
-export function getBarPercent(score: number, max: number): number {
-  return Math.round((score / max) * 100);
 }
 
 export function sortByScore(patios: Patio[]): Patio[] {
