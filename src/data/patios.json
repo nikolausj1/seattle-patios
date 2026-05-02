@@ -207,6 +207,25 @@
     "coordinates": { "lat": 47.6452, "lng": -122.3344 }
   },
   {
+    "id": "100-pound-clam",
+    "name": "The 100 Pound Clam",
+    "neighborhood": "South Lake Union",
+    "description": "A seasonal walk-up seafood shack on the south shore of Lake Union with a sprawling, sunny picnic-table patio right on the dock. You order at the window, grab a cold beer or rosé, and watch seaplanes land while polishing off cornmeal-crusted fish and chips. It's casual, family-friendly, and one of the most genuinely fun summer spots in the city — only open May through September.",
+    "comeHereFor": "Seasonal walk-up seafood with picnic tables on Lake Union",
+    "images": ["/patios/100-pound-clam/01.jpg", "/patios/100-pound-clam/02.jpg"],
+    "scores": { "sun": 28, "foodDrink": 25, "theSpace": 28, "total": 81 },
+    "patioType": "waterfront",
+    "sunDetails": "South-facing on Lake Union, full afternoon sun with skyline and marina views",
+    "mealType": "both",
+    "heated": false,
+    "covered": false,
+    "yelpUrl": "https://www.yelp.com/biz/the-100-pound-clam-seattle-2",
+    "websiteUrl": "https://www.100poundclam.com/",
+    "googleMapsUrl": "https://maps.google.com/?q=The+100+Pound+Clam+Seattle",
+    "address": "1001 Fairview Ave N, Seattle, WA 98109",
+    "coordinates": { "lat": 47.6275, "lng": -122.3380 }
+  },
+  {
     "id": "happy-crab",
     "name": "Happy Crab",
     "neighborhood": "Ballard",
@@ -280,6 +299,25 @@
     "coordinates": { "lat": 47.6314, "lng": -122.4012 }
   },
   {
+    "id": "phinney-station",
+    "name": "Phinney Station",
+    "neighborhood": "Phinney Ridge",
+    "description": "A two-level patio bar on Greenwood Ave with the loose, friendly energy of a great neighborhood spot. The lower deck is astroturf with picnic tables, fire pits, and dogs everywhere; the upper deck has white umbrellas, string lights, and a slightly more grown-up cocktail-and-slushie vibe. Heaters and a covered upper level mean it works year-round.",
+    "comeHereFor": "Two-level neighborhood patio with slushies, fire pits, and dogs",
+    "images": ["/patios/phinney-station/01.jpg", "/patios/phinney-station/02.jpg"],
+    "scores": { "sun": 26, "foodDrink": 22, "theSpace": 28, "total": 76 },
+    "patioType": "streetside",
+    "sunDetails": "South/west-facing two-level patio, midday and afternoon sun on the upper deck",
+    "mealType": "both",
+    "heated": true,
+    "covered": true,
+    "yelpUrl": "https://www.yelp.com/biz/phinney-station-seattle",
+    "websiteUrl": "https://www.phinneystation.com/",
+    "googleMapsUrl": "https://maps.google.com/?q=Phinney+Station+Seattle",
+    "address": "7418 Greenwood Ave N, Seattle, WA 98103",
+    "coordinates": { "lat": 47.6831, "lng": -122.3550 }
+  },
+  {
     "id": "citizen-collective",
     "name": "Citizen Collective",
     "neighborhood": "Lower Queen Anne",
@@ -297,6 +335,25 @@
     "googleMapsUrl": "https://maps.google.com/?q=Citizen+Campfire+Seattle",
     "address": "706 Taylor Ave N, Seattle, WA 98109",
     "coordinates": { "lat": 47.6257, "lng": -122.3460 }
+  },
+  {
+    "id": "fremont-social",
+    "name": "The Fremont Social",
+    "neighborhood": "Fremont",
+    "description": "Tucked behind Mischief Distillery on the Fremont canal, The Fremont Social pairs an intimate string-lit courtyard with a glass-walled rooftop bar overhead. The cocktails are excellent (it's a distillery, after all), the food leans New American with raw bar standouts, and the whole space has the unhurried, evening-into-night vibe you want when the weather cooperates.",
+    "comeHereFor": "Distillery cocktails on a string-lit courtyard with a rooftop above",
+    "images": ["/patios/fremont-social/01.jpg", "/patios/fremont-social/02.jpg"],
+    "scores": { "sun": 22, "foodDrink": 25, "theSpace": 27, "total": 74 },
+    "patioType": "courtyard",
+    "sunDetails": "Courtyard patio, late-afternoon and evening sun; rooftop deck for golden hour",
+    "mealType": "both",
+    "heated": true,
+    "covered": true,
+    "yelpUrl": "https://www.yelp.com/biz/the-fremont-social-seattle",
+    "websiteUrl": "https://www.fremontmischief.com/the-fremont-social",
+    "googleMapsUrl": "https://maps.google.com/?q=The+Fremont+Social+Seattle",
+    "address": "132 N Canal St, Seattle, WA 98103",
+    "coordinates": { "lat": 47.6494, "lng": -122.3578 }
   },
   {
     "id": "bongos",
