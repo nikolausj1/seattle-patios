@@ -28,6 +28,16 @@ export default function HeroSection() {
         }}
       />
 
+      {/* Tropical leaves — peek in from the left edge of the hero */}
+      <Image
+        src="/images/leaves.png"
+        alt=""
+        width={813}
+        height={789}
+        priority
+        className="pointer-events-none absolute left-0 bottom-0 w-[180px] md:w-[260px] lg:w-[300px] -translate-x-[55%] translate-y-[8%] -z-[5] hidden sm:block"
+      />
+
       {/* Decorative cartoon sun — sits in the upper-right of the hero, behind the umbrella */}
       <svg
         className="absolute top-12 right-[35%] w-20 h-20 -z-[5] pointer-events-none hidden md:block"
