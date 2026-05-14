@@ -10,7 +10,9 @@ import {
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { Patio } from "@/types";
+import { overallScore } from "@/types";
 import { useUserLocation } from "@/context/UserLocationContext";
+import { getTierHex } from "@/utils/scoring";
 
 interface MapClientProps {
   patios: Patio[];
@@ -23,10 +25,9 @@ interface MapClientProps {
 const SEATTLE_CENTER: [number, number] = [47.645, -122.335];
 const DEFAULT_ZOOM = 12;
 
-function getScorePinColor(total: number): string {
-  if (total >= 80) return "#059669"; // emerald-600
-  if (total >= 60) return "#d97706"; // amber-600
-  return "#6b7280"; // gray-500
+// Pin color tracks the same overall-score tier as the score circle on the card.
+function getScorePinColor(overall: number): string {
+  return getTierHex(overall);
 }
 
 function createMarkerIcon(
@@ -67,7 +68,8 @@ function createMarkerIcon(
   }
 
   const size = isHovered ? 28 : 24;
-  const color = isHovered ? getScorePinColor(score) : "#4A5568";
+  // Always color by overall-score tier (matches the score circle on the card).
+  const color = getScorePinColor(score);
   const border = isHovered
     ? "2px solid white"
     : "2px solid rgba(255,255,255,0.8)";
@@ -210,7 +212,7 @@ export default function MapClient({
           <Marker
             key={patio.id}
             position={[patio.coordinates.lat, patio.coordinates.lng]}
-            icon={createMarkerIcon(isActive, isHovered, patio.scores.total, patio.name, patio.neighborhood)}
+            icon={createMarkerIcon(isActive, isHovered, overallScore(patio.scores), patio.name, patio.neighborhood)}
             eventHandlers={{
               click: () => onSelectPlace(patio.id),
             }}

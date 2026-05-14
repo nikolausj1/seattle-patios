@@ -15,13 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Seattle Patios - The Best Outdoor Dining in Seattle",
+  title: "Seattle Patio Vibes — Seattle's Best Patios, Ranked",
   description:
-    "A scored and curated guide to Seattle's best patios — ranked by sun, food & drink, and the space itself.",
+    "Seattle's best patios, ranked by sun, food, drinks, and vibe.",
   openGraph: {
-    title: "Seattle Patios - The Best Outdoor Dining in Seattle",
+    title: "Seattle Patio Vibes — Seattle's Best Patios, Ranked",
     description:
-      "A scored and curated guide to Seattle's best patios — ranked by sun, food & drink, and the space itself.",
+      "Seattle's best patios, ranked by sun, food, drinks, and vibe.",
     type: "website",
     url: "https://seattlepatiovibes.com",
   },

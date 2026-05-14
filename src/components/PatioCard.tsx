@@ -1,38 +1,29 @@
 "use client";
 
 import { forwardRef, useMemo } from "react";
-import type { Patio } from "@/types";
+import type { Patio, ScorePillar } from "@/types";
+import { overallScore } from "@/types";
 import { useUserLocation } from "@/context/UserLocationContext";
 import { distanceMiles } from "@/utils/distance";
-import { getBlockColor, getFilledBlocks } from "@/utils/scoring";
+import {
+  PILLAR_COLOR,
+  PILLAR_LABEL,
+  getTierHex,
+} from "@/utils/scoring";
+import { FILTERS } from "@/utils/filters";
 import ImageCarousel from "./ImageCarousel";
 
 interface PatioCardProps {
   patio: Patio;
   isSelected: boolean;
   isHovered: boolean;
+  isTopRated?: boolean;
   onSelect: (id: string) => void;
   onHover: (id: string | null) => void;
 }
 
-const patioTypeLabels: Record<string, string> = {
-  streetside: "Streetside",
-  rooftop: "Rooftop",
-  waterfront: "Waterfront",
-  courtyard: "Courtyard",
-  deck: "Deck",
-  garden: "Garden",
-  "beer-garden": "Beer Garden",
-};
-
-const mealTypeLabels: Record<string, string> = {
-  dinner: "Dinner",
-  drinks: "Drinks",
-  both: "Dinner & Drinks",
-};
-
 const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
-  function PatioCard({ patio, isSelected, isHovered, onSelect, onHover }, ref) {
+  function PatioCard({ patio, isSelected, isHovered, isTopRated = false, onSelect, onHover }, ref) {
     const userLocation = useUserLocation();
     const distance = useMemo(() => {
       if (!userLocation) return null;
@@ -43,11 +34,21 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
       return d < 10 ? d.toFixed(1) : Math.round(d).toString();
     }, [userLocation, patio.coordinates.lat, patio.coordinates.lng]);
 
-    const scoreCategories: { key: "sun" | "foodDrink" | "theSpace"; label: string; icon: string; score: number; max: number }[] = [
-      { key: "sun", label: "Sun", icon: "☀️", score: patio.scores.sun, max: 33 },
-      { key: "foodDrink", label: "Drinks & Eats", icon: "🍷", score: patio.scores.foodDrink, max: 33 },
-      { key: "theSpace", label: "Vibes", icon: "🤙", score: patio.scores.theSpace, max: 34 },
+    const overall = overallScore(patio.scores);
+
+    const scorePillars: { key: ScorePillar; icon: string; score: number }[] = [
+      { key: "sun",   icon: "☀️", score: patio.scores.sun },
+      { key: "food",  icon: "🍽️", score: patio.scores.food },
+      { key: "drink", icon: "🍷", score: patio.scores.drink },
+      { key: "vibe",  icon: "🤙", score: patio.scores.vibe },
     ];
+
+    // Filter labels this patio matches (used for the tag pill row beneath the name).
+    const matchedFilterLabels = useMemo(() => {
+      return FILTERS
+        .filter((f) => f.predicate(patio))
+        .map((f) => f.label);
+    }, [patio]);
 
     return (
       <div
@@ -56,7 +57,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
         onClick={() => onSelect(patio.id)}
         onMouseEnter={() => onHover(patio.id)}
         onMouseLeave={() => onHover(null)}
-        className={`cursor-pointer rounded-lg overflow-hidden bg-white transition-all duration-200 ${
+        className={`cursor-pointer rounded-2xl overflow-hidden bg-white transition-all duration-200 ${
           isSelected
             ? "ring-2 ring-patio-accent shadow-lg"
             : isHovered
@@ -64,32 +65,38 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
             : "shadow-sm hover:shadow-md"
         }`}
       >
-        {/* Image carousel with score badge */}
+        {/* Image carousel with overall-score badge (tier-colored) */}
         <ImageCarousel
           images={patio.images}
           alt={patio.name}
-          score={patio.scores.total}
+          score={overall}
+          scoreColor={getTierHex(overall)}
+          subBadge={isTopRated ? "Top Rated" : undefined}
         />
 
-        {/* Score blocks (Option AC) */}
-        <div className="px-4 pt-3 pb-3 flex gap-1.5 border-b border-gray-100">
-          {scoreCategories.map((cat) => {
-            const filled = getFilledBlocks(cat.score, cat.max);
-            const color = getBlockColor(cat.key);
+        {/* Per-pillar score row */}
+        <div className="px-4 pt-3 pb-2 flex gap-3">
+          {scorePillars.map((p) => {
+            const color = PILLAR_COLOR[p.key];
             return (
-              <div key={cat.key} className="flex-1 flex flex-col items-center gap-1">
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 10 }, (_, i) => (
-                    <span
-                      key={i}
-                      className="w-2 h-3.5 rounded-sm"
-                      style={{ background: i < filled ? color : "#eee" }}
-                    />
-                  ))}
-                </div>
+              <div key={p.key} className="flex-1 flex flex-col items-center gap-1.5">
+                <span className="text-xl font-bold text-patio-navy tabular-nums leading-none">
+                  {p.score}
+                </span>
+                <div
+                  className="w-full h-[3px] rounded-full"
+                  style={{ background: color }}
+                />
                 <div className="flex items-center gap-1">
-                  <span className="text-[11px]">{cat.icon}</span>
-                  <span className="text-[9px] text-gray-400 font-medium">{cat.label}</span>
+                  <span className="text-[11px] leading-none" aria-hidden>
+                    {p.icon}
+                  </span>
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-wide leading-none"
+                    style={{ color }}
+                  >
+                    {PILLAR_LABEL[p.key]}
+                  </span>
                 </div>
               </div>
             );
@@ -97,66 +104,67 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
         </div>
 
         {/* Content */}
-        <div className="p-4">
-          <div className="flex items-baseline justify-between gap-2 mb-1">
-            <h3 className="font-serif text-lg font-semibold text-patio-charcoal leading-snug">
-              {patio.name}
-            </h3>
-            {distance && (
-              <span className="text-[11px] text-gray-400 whitespace-nowrap flex-shrink-0 flex items-center gap-1">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
-                </svg>
-                {distance} mi away
-              </span>
-            )}
+        <div className="px-4 pt-3 pb-4">
+          {/* Name row with optional Heated badge */}
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0">
+              <h3 className="text-lg font-bold text-patio-navy leading-snug">
+                {patio.name}
+              </h3>
+              <div className="text-xs text-patio-navy/55 mt-0.5">
+                {patio.neighborhood}
+                {patio.patioType === "waterfront" && " · Waterfront"}
+                {patio.patioType === "rooftop" && " · Rooftop"}
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              {distance && (
+                <span className="text-[11px] text-patio-navy/45 whitespace-nowrap flex items-center gap-1">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  {distance} mi
+                </span>
+              )}
+            </div>
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-patio-slate mb-2">
-            <span>{patio.neighborhood}</span>
-          </div>
-
-          {/* Patio metadata tags */}
-          <div className="flex flex-wrap gap-1.5 mb-2">
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-patio-cream text-patio-bark">
-              {patioTypeLabels[patio.patioType]}
-            </span>
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-patio-cream text-patio-bark">
-              {mealTypeLabels[patio.mealType]}
-            </span>
-            {patio.heated && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-50 text-amber-700">
-                Heated
-              </span>
-            )}
-            {patio.covered && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-50 text-blue-700">
-                Covered
-              </span>
-            )}
-          </div>
+          {/* Matched filter pills row */}
+          {matchedFilterLabels.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-2.5">
+              {matchedFilterLabels.map((label) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-patio-pill-bg text-patio-navy/75"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          )}
 
           {/* Come here for */}
           {patio.comeHereFor && (
-            <div className="text-xs text-patio-bark mb-2">
+            <div className="text-xs text-patio-navy/80 mt-2.5">
               <span className="font-semibold">Come here for:</span>{" "}
               <span>{patio.comeHereFor}</span>
             </div>
           )}
 
-          <p className="text-sm text-patio-charcoal/80 leading-relaxed mb-3">
+          <p className="text-sm text-patio-navy/75 leading-relaxed mt-2">
             {patio.description}
           </p>
 
           {/* Action links */}
-          <div className="flex items-center gap-4 text-xs">
+          <div className="flex items-center gap-4 text-xs mt-3">
             {patio.yelpUrl && (
               <a
                 href={patio.yelpUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-patio-slate hover:text-patio-accent transition-colors"
+                className="text-patio-navy/65 hover:text-patio-accent transition-colors"
               >
                 Yelp
               </a>
@@ -167,7 +175,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-patio-slate hover:text-patio-accent transition-colors"
+                className="text-patio-navy/65 hover:text-patio-accent transition-colors"
               >
                 Website
               </a>
@@ -177,7 +185,7 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="text-patio-slate hover:text-patio-accent transition-colors"
+              className="text-patio-navy/65 hover:text-patio-accent transition-colors"
             >
               Directions
             </a>

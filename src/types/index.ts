@@ -1,9 +1,15 @@
 export interface PatioScores {
-  sun: number;        // out of 33
-  foodDrink: number;  // out of 33
-  theSpace: number;   // out of 34
-  total: number;      // out of 100 (sum of above)
+  sun: number;   // out of 100
+  food: number;  // out of 100
+  drink: number; // out of 100
+  vibe: number;  // out of 100
 }
+
+export function overallScore(scores: PatioScores): number {
+  return Math.round((scores.sun + scores.food + scores.drink + scores.vibe) / 4);
+}
+
+export type ScorePillar = "sun" | "food" | "drink" | "vibe";
 
 export type PatioType =
   | "streetside"
@@ -29,6 +35,9 @@ export interface Patio {
   mealType: MealType;
   heated: boolean;
   covered: boolean;
+  sheltered?: boolean;
+  dogFriendly?: boolean;
+  greatViews?: boolean;
   yelpUrl?: string;
   websiteUrl?: string;
   googleMapsUrl: string;

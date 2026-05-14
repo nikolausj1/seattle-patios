@@ -5,8 +5,17 @@
     "neighborhood": "Eastlake",
     "description": "Honestly one of the best outdoor spots in the city. You grab an Adirondack chair right on the gravel beach and stare straight across Lake Union with a glass of wine and a plate of oysters. There's a fire pit if it gets cool, and the whole vibe is like a casual beach bonfire that just happens to have exceptional food.",
     "comeHereFor": "Lakefront Adirondack chairs and raw bar on the beach",
-    "images": ["/patios/westward/01.jpg", "/patios/westward/02.jpg", "/images/places/westward-01.jpg"],
-    "scores": { "sun": 30, "foodDrink": 30, "theSpace": 33, "total": 93 },
+    "images": [
+      "/patios/westward/01.jpg",
+      "/patios/westward/02.jpg",
+      "/images/places/westward-01.jpg"
+    ],
+    "scores": {
+      "sun": 91,
+      "food": 91,
+      "drink": 91,
+      "vibe": 97
+    },
     "patioType": "waterfront",
     "sunDetails": "South-facing across Lake Union, full afternoon and evening sun",
     "mealType": "both",
@@ -16,7 +25,10 @@
     "websiteUrl": "https://westwardseattle.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Westward+Seattle",
     "address": "2501 N Northlake Way, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6517, "lng": -122.3288 }
+    "coordinates": {
+      "lat": 47.6517,
+      "lng": -122.3288
+    }
   },
   {
     "id": "rays-cafe",
@@ -24,8 +36,20 @@
     "neighborhood": "Ballard",
     "description": "The deck at Ray's is the quintessential Seattle summer experience. A sprawling second-floor balcony hanging right over Shilshole Bay with an unobstructed view of Puget Sound and the Olympics. On sunny evenings, the sunsets here are genuinely legendary. Servers will bring blankets when it cools down so you don't have to leave.",
     "comeHereFor": "Legendary waterfront sunsets over the Olympics",
-    "images": ["/images/places/rays-cafe-01.jpg", "/images/places/rays-cafe-02.jpg", "/images/places/rays-cafe-03.jpg", "/images/places/rays-cafe-04.jpg", "/images/places/rays-cafe-05.jpg", "/images/places/rays-cafe-06.jpg"],
-    "scores": { "sun": 31, "foodDrink": 28, "theSpace": 32, "total": 91 },
+    "images": [
+      "/images/places/rays-cafe-01.jpg",
+      "/images/places/rays-cafe-02.jpg",
+      "/images/places/rays-cafe-03.jpg",
+      "/images/places/rays-cafe-04.jpg",
+      "/images/places/rays-cafe-05.jpg",
+      "/images/places/rays-cafe-06.jpg"
+    ],
+    "scores": {
+      "sun": 94,
+      "food": 85,
+      "drink": 85,
+      "vibe": 94
+    },
     "patioType": "deck",
     "sunDetails": "West-facing over Shilshole Bay, full afternoon and sunset sun over the Olympics",
     "mealType": "both",
@@ -35,16 +59,27 @@
     "websiteUrl": "https://www.rays.com/cafe/",
     "googleMapsUrl": "https://maps.google.com/?q=Rays+Boathouse+Seattle",
     "address": "6049 Seaview Ave NW, Seattle, WA 98107",
-    "coordinates": { "lat": 47.6734, "lng": -122.4077 }
+    "coordinates": {
+      "lat": 47.6734,
+      "lng": -122.4077
+    }
   },
   {
     "id": "the-nest",
     "name": "The Nest",
     "neighborhood": "Downtown",
-    "description": "You check in downstairs and they take you up with a special key — which already sets the mood. The rooftop terrace opens up to a jaw-dropping panorama of Elliott Bay, the Great Wheel, and the Olympic Mountains. In summer the golden-hour light over the water is genuinely hard to beat. Fire pits, lush greenery, and cozy lounge seating.",
+    "description": "You check in downstairs and they take you up with a special key \u2014 which already sets the mood. The rooftop terrace opens up to a jaw-dropping panorama of Elliott Bay, the Great Wheel, and the Olympic Mountains. In summer the golden-hour light over the water is genuinely hard to beat. Fire pits, lush greenery, and cozy lounge seating.",
     "comeHereFor": "Unobstructed Elliott Bay sunset views above Pike Place",
-    "images": ["/patios/the-nest/01.jpg", "/patios/the-nest/02.jpg"],
-    "scores": { "sun": 29, "foodDrink": 26, "theSpace": 33, "total": 88 },
+    "images": [
+      "/patios/the-nest/01.jpg",
+      "/patios/the-nest/02.jpg"
+    ],
+    "scores": {
+      "sun": 88,
+      "food": 79,
+      "drink": 79,
+      "vibe": 97
+    },
     "patioType": "rooftop",
     "sunDetails": "West-facing toward Elliott Bay and Olympic Mountains, spectacular afternoon and sunset",
     "mealType": "drinks",
@@ -54,7 +89,10 @@
     "websiteUrl": "https://www.thenestseattle.com/",
     "googleMapsUrl": "https://maps.google.com/?q=The+Nest+Thompson+Seattle",
     "address": "110 Stewart St, Seattle, WA 98101",
-    "coordinates": { "lat": 47.6106, "lng": -122.3413 }
+    "coordinates": {
+      "lat": 47.6106,
+      "lng": -122.3413
+    }
   },
   {
     "id": "little-water-cantina",
@@ -62,8 +100,20 @@
     "neighborhood": "Eastlake",
     "description": "Little Water's patio is perched right on the eastern shore of Lake Union with a sweeping west-facing view toward Gas Works Park and the Olympics. The covered, heated setup means you can catch that afternoon glow even on cooler days. Margaritas in hand with that view is a combo that's hard to argue with.",
     "comeHereFor": "Lake Union views and margaritas on a heated lakeside patio",
-    "images": ["/images/places/little-water-cantina-01.jpg", "/images/places/little-water-cantina-02.jpg", "/images/places/little-water-cantina-03.jpg", "/images/places/little-water-cantina-04.jpg", "/images/places/little-water-cantina-05.jpg", "/images/places/little-water-cantina-06.jpg"],
-    "scores": { "sun": 28, "foodDrink": 27, "theSpace": 32, "total": 87 },
+    "images": [
+      "/images/places/little-water-cantina-01.jpg",
+      "/images/places/little-water-cantina-02.jpg",
+      "/images/places/little-water-cantina-03.jpg",
+      "/images/places/little-water-cantina-04.jpg",
+      "/images/places/little-water-cantina-05.jpg",
+      "/images/places/little-water-cantina-06.jpg"
+    ],
+    "scores": {
+      "sun": 85,
+      "food": 82,
+      "drink": 82,
+      "vibe": 94
+    },
     "patioType": "waterfront",
     "sunDetails": "West-facing over Lake Union toward Gas Works Park, afternoon and golden hour sun",
     "mealType": "both",
@@ -73,16 +123,33 @@
     "websiteUrl": "https://littlewatercantina.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Little+Water+Cantina+Seattle",
     "address": "2865 Eastlake Ave E, Seattle, WA 98102",
-    "coordinates": { "lat": 47.6472, "lng": -122.3249 }
+    "coordinates": {
+      "lat": 47.6472,
+      "lng": -122.3249
+    }
   },
   {
     "id": "marination-ma-kai",
     "name": "Marination Ma Kai",
     "neighborhood": "West Seattle",
-    "description": "You order at the counter, grab a picnic table right on the waterfront, and look straight across at the full Seattle skyline — Space Needle included. The Hawaiian-Korean food is casual and really good, and the vibe on a sunny day is pure summer energy with people hanging out, dogs everywhere, and ferries passing by.",
+    "description": "You order at the counter, grab a picnic table right on the waterfront, and look straight across at the full Seattle skyline \u2014 Space Needle included. The Hawaiian-Korean food is casual and really good, and the vibe on a sunny day is pure summer energy with people hanging out, dogs everywhere, and ferries passing by.",
     "comeHereFor": "The best skyline view in the city from a picnic table",
-    "images": ["/images/places/marination-ma-kai-01.jpg", "/images/places/marination-ma-kai-02.jpg", "/images/places/marination-ma-kai-03.jpg", "/images/places/marination-ma-kai-04.jpg", "/images/places/marination-ma-kai-05.jpg", "/images/places/marination-ma-kai-06.jpg", "/images/places/marination-ma-kai-07.jpg", "/images/places/marination-ma-kai-08.jpg"],
-    "scores": { "sun": 30, "foodDrink": 25, "theSpace": 31, "total": 86 },
+    "images": [
+      "/images/places/marination-ma-kai-01.jpg",
+      "/images/places/marination-ma-kai-02.jpg",
+      "/images/places/marination-ma-kai-03.jpg",
+      "/images/places/marination-ma-kai-04.jpg",
+      "/images/places/marination-ma-kai-05.jpg",
+      "/images/places/marination-ma-kai-06.jpg",
+      "/images/places/marination-ma-kai-07.jpg",
+      "/images/places/marination-ma-kai-08.jpg"
+    ],
+    "scores": {
+      "sun": 91,
+      "food": 76,
+      "drink": 76,
+      "vibe": 91
+    },
     "patioType": "waterfront",
     "sunDetails": "East-facing across Elliott Bay toward Seattle skyline, morning and midday sun",
     "mealType": "both",
@@ -92,7 +159,10 @@
     "websiteUrl": "https://marinationmobile.com/locations",
     "googleMapsUrl": "https://maps.google.com/?q=Marination+Ma+Kai+Seattle",
     "address": "1660 Harbor Ave SW, Seattle, WA 98126",
-    "coordinates": { "lat": 47.5894, "lng": -122.3806 }
+    "coordinates": {
+      "lat": 47.5894,
+      "lng": -122.3806
+    }
   },
   {
     "id": "six-seven",
@@ -100,8 +170,18 @@
     "neighborhood": "Waterfront",
     "description": "This is the patio that made me want to build this site. Sitting right over Elliott Bay with the Olympic Mountains in the distance, Six Seven has one of the best sunset views in the city. The food is elevated Pacific Northwest, and the cocktails are strong.",
     "comeHereFor": "Sunset drinks right on the water",
-    "images": ["/images/places/six-seven-edgewater-01.jpg", "/images/places/six-seven-edgewater-02.jpg", "/images/places/six-seven-edgewater-03.jpg", "/images/places/six-seven-edgewater-04.jpg"],
-    "scores": { "sun": 28, "foodDrink": 27, "theSpace": 30, "total": 85 },
+    "images": [
+      "/images/places/six-seven-edgewater-01.jpg",
+      "/images/places/six-seven-edgewater-02.jpg",
+      "/images/places/six-seven-edgewater-03.jpg",
+      "/images/places/six-seven-edgewater-04.jpg"
+    ],
+    "scores": {
+      "sun": 85,
+      "food": 82,
+      "drink": 82,
+      "vibe": 88
+    },
     "patioType": "waterfront",
     "sunDetails": "West-facing over Elliott Bay, full afternoon and sunset sun",
     "mealType": "both",
@@ -111,16 +191,27 @@
     "websiteUrl": "https://www.edgewaterhotel.com/six-seven-restaurant",
     "googleMapsUrl": "https://maps.google.com/?q=Six+Seven+Restaurant+Seattle",
     "address": "2411 Alaskan Way, Pier 67, Seattle, WA 98121",
-    "coordinates": { "lat": 47.6128, "lng": -122.3566 }
+    "coordinates": {
+      "lat": 47.6128,
+      "lng": -122.3566
+    }
   },
   {
     "id": "saltys-on-alki",
     "name": "Salty's on Alki",
     "neighborhood": "West Seattle",
-    "description": "Salty's sits right on Alki Beach with a sweeping deck looking straight across Elliott Bay at the full downtown skyline — Space Needle, ferries, the works. The food is upscale Northwest seafood and the brunches are legendary. Glass railings keep the view unobstructed from almost every seat, and a partially tented section means the patio works in iffy weather too.",
+    "description": "Salty's sits right on Alki Beach with a sweeping deck looking straight across Elliott Bay at the full downtown skyline \u2014 Space Needle, ferries, the works. The food is upscale Northwest seafood and the brunches are legendary. Glass railings keep the view unobstructed from almost every seat, and a partially tented section means the patio works in iffy weather too.",
     "comeHereFor": "Maybe the best skyline view in Seattle, period",
-    "images": ["/patios/saltys-on-alki/01.png", "/patios/saltys-on-alki/02.png"],
-    "scores": { "sun": 26, "foodDrink": 28, "theSpace": 30, "total": 84 },
+    "images": [
+      "/patios/saltys-on-alki/01.png",
+      "/patios/saltys-on-alki/02.png"
+    ],
+    "scores": {
+      "sun": 79,
+      "food": 85,
+      "drink": 85,
+      "vibe": 88
+    },
     "patioType": "waterfront",
     "sunDetails": "East-facing across Elliott Bay toward the Seattle skyline, morning and midday sun",
     "mealType": "both",
@@ -129,16 +220,27 @@
     "websiteUrl": "https://www.saltys.com/seattle",
     "googleMapsUrl": "https://maps.google.com/?q=Saltys+on+Alki+Seattle",
     "address": "1936 Harbor Ave SW, Seattle, WA 98126",
-    "coordinates": { "lat": 47.5910, "lng": -122.3786 }
+    "coordinates": {
+      "lat": 47.591,
+      "lng": -122.3786
+    }
   },
   {
     "id": "cove",
     "name": "The Cove",
     "neighborhood": "South Lake Union",
-    "description": "A waterfront wine bar tucked into Chandler's Cove on South Lake Union. You can literally tie up a boat at their dock and walk in. The patio sits right on the water with views across the lake, and the wine list is all Northwest — Washington and Oregon selections with seasonally sourced food to match.",
+    "description": "A waterfront wine bar tucked into Chandler's Cove on South Lake Union. You can literally tie up a boat at their dock and walk in. The patio sits right on the water with views across the lake, and the wine list is all Northwest \u2014 Washington and Oregon selections with seasonally sourced food to match.",
     "comeHereFor": "Waterfront wine on the dock at Chandler's Cove",
-    "images": ["/patios/cove/01.jpg", "/patios/cove/02.jpg"],
-    "scores": { "sun": 25, "foodDrink": 28, "theSpace": 31, "total": 84 },
+    "images": [
+      "/patios/cove/01.jpg",
+      "/patios/cove/02.jpg"
+    ],
+    "scores": {
+      "sun": 76,
+      "food": 85,
+      "drink": 85,
+      "vibe": 91
+    },
     "patioType": "waterfront",
     "sunDetails": "West-facing on Lake Union, afternoon and evening sun",
     "mealType": "both",
@@ -148,7 +250,10 @@
     "websiteUrl": "https://www.thecoveseattle.com/",
     "googleMapsUrl": "https://maps.google.com/?q=The+Cove+901+Fairview+Ave+N+Seattle",
     "address": "901 Fairview Ave N, Suite C100, Seattle, WA 98109",
-    "coordinates": { "lat": 47.6270, "lng": -122.3328 }
+    "coordinates": {
+      "lat": 47.627,
+      "lng": -122.3328
+    }
   },
   {
     "id": "white-swan",
@@ -156,8 +261,16 @@
     "neighborhood": "Eastlake",
     "description": "This is the hidden gem of the list. Tucked into a marina on Eastlake, the patio at White Swan feels like you've stumbled onto someone's private dock. Sailboats bobbing around you, solid food, and a vibe that feels genuinely off the beaten path.",
     "comeHereFor": "Hidden marina patio among the sailboats",
-    "images": ["/patios/white-swan/02.jpg", "/patios/white-swan/01.jpg"],
-    "scores": { "sun": 25, "foodDrink": 27, "theSpace": 32, "total": 84 },
+    "images": [
+      "/patios/white-swan/02.jpg",
+      "/patios/white-swan/01.jpg"
+    ],
+    "scores": {
+      "sun": 76,
+      "food": 82,
+      "drink": 82,
+      "vibe": 94
+    },
     "patioType": "waterfront",
     "sunDetails": "Hidden marina patio, afternoon sun among the boats",
     "mealType": "both",
@@ -167,16 +280,30 @@
     "websiteUrl": "https://www.whiteswanpublichouse.com",
     "googleMapsUrl": "https://maps.google.com/?q=White+Swan+Public+House+Seattle",
     "address": "1103 Eastlake Ave E, Seattle, WA 98109",
-    "coordinates": { "lat": 47.6365, "lng": -122.3280 }
+    "coordinates": {
+      "lat": 47.6365,
+      "lng": -122.328
+    }
   },
   {
     "id": "mountaineering-club",
     "name": "The Mountaineering Club",
     "neighborhood": "University District",
-    "description": "Riding the elevator up to the 16th floor of the Graduate Hotel and stepping out onto this terrace is a genuinely wow moment — near-360 views of the Space Needle, Lake Union, Mount Rainier, and the Cascades. The campsite-chic vibe with old mountaineering gear, cozy couches, and s'mores kits feels fun and un-stuffy for a rooftop bar.",
+    "description": "Riding the elevator up to the 16th floor of the Graduate Hotel and stepping out onto this terrace is a genuinely wow moment \u2014 near-360 views of the Space Needle, Lake Union, Mount Rainier, and the Cascades. The campsite-chic vibe with old mountaineering gear, cozy couches, and s'mores kits feels fun and un-stuffy for a rooftop bar.",
     "comeHereFor": "360-degree Seattle panorama with s'mores and cocktails",
-    "images": ["/patios/mountaineering-club/01.jpg", "/patios/mountaineering-club/02.jpg", "/patios/mountaineering-club/03.jpg", "/patios/mountaineering-club/04.jpg", "/patios/mountaineering-club/05.jpg"],
-    "scores": { "sun": 26, "foodDrink": 24, "theSpace": 30, "total": 80 },
+    "images": [
+      "/patios/mountaineering-club/01.jpg",
+      "/patios/mountaineering-club/02.jpg",
+      "/patios/mountaineering-club/03.jpg",
+      "/patios/mountaineering-club/04.jpg",
+      "/patios/mountaineering-club/05.jpg"
+    ],
+    "scores": {
+      "sun": 79,
+      "food": 73,
+      "drink": 73,
+      "vibe": 88
+    },
     "patioType": "rooftop",
     "sunDetails": "Near-360 views, west side catches afternoon and sunset sun",
     "mealType": "both",
@@ -186,16 +313,27 @@
     "websiteUrl": "https://www.themountaineeringclub.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Mountaineering+Club+Seattle",
     "address": "4507 Brooklyn Ave NE, Seattle, WA 98105",
-    "coordinates": { "lat": 47.6618, "lng": -122.3146 }
+    "coordinates": {
+      "lat": 47.6618,
+      "lng": -122.3146
+    }
   },
   {
     "id": "gasworks-brewing",
     "name": "Gasworks Brewing",
     "neighborhood": "Wallingford",
-    "description": "Right on the north shore of Lake Union, a stone's throw from Gas Works Park. The terraced dock-style patio drops down toward the water, packed on sunny afternoons with people drinking house beer while kayakers and paddleboarders cruise by. It's an open beer garden in the best sense — loose, communal, dog-friendly, with golden-hour light hitting the water just right.",
+    "description": "Right on the north shore of Lake Union, a stone's throw from Gas Works Park. The terraced dock-style patio drops down toward the water, packed on sunny afternoons with people drinking house beer while kayakers and paddleboarders cruise by. It's an open beer garden in the best sense \u2014 loose, communal, dog-friendly, with golden-hour light hitting the water just right.",
     "comeHereFor": "House beer on a terraced dock with paddleboarders and Lake Union views",
-    "images": ["/patios/gasworks-brewing/01.png", "/patios/gasworks-brewing/02.png"],
-    "scores": { "sun": 30, "foodDrink": 21, "theSpace": 32, "total": 83 },
+    "images": [
+      "/patios/gasworks-brewing/01.png",
+      "/patios/gasworks-brewing/02.png"
+    ],
+    "scores": {
+      "sun": 91,
+      "food": 64,
+      "drink": 64,
+      "vibe": 94
+    },
     "patioType": "beer-garden",
     "sunDetails": "South-facing terraced patio on Lake Union, full afternoon and golden-hour sun",
     "mealType": "both",
@@ -204,16 +342,27 @@
     "websiteUrl": "https://www.gasworksbrewing.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Gasworks+Brewing+Seattle",
     "address": "2441 N Northlake Way, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6452, "lng": -122.3344 }
+    "coordinates": {
+      "lat": 47.6452,
+      "lng": -122.3344
+    }
   },
   {
     "id": "100-pound-clam",
     "name": "The 100 Pound Clam",
     "neighborhood": "South Lake Union",
-    "description": "A seasonal walk-up seafood shack on the south shore of Lake Union with a sprawling, sunny picnic-table patio right on the dock. You order at the window, grab a cold beer or rosé, and watch seaplanes land while polishing off cornmeal-crusted fish and chips. It's casual, family-friendly, and one of the most genuinely fun summer spots in the city — only open May through September.",
+    "description": "A seasonal walk-up seafood shack on the south shore of Lake Union with a sprawling, sunny picnic-table patio right on the dock. You order at the window, grab a cold beer or ros\u00e9, and watch seaplanes land while polishing off cornmeal-crusted fish and chips. It's casual, family-friendly, and one of the most genuinely fun summer spots in the city \u2014 only open May through September.",
     "comeHereFor": "Seasonal walk-up seafood with picnic tables on Lake Union",
-    "images": ["/patios/100-pound-clam/01.jpg", "/patios/100-pound-clam/02.jpg"],
-    "scores": { "sun": 28, "foodDrink": 25, "theSpace": 28, "total": 81 },
+    "images": [
+      "/patios/100-pound-clam/01.jpg",
+      "/patios/100-pound-clam/02.jpg"
+    ],
+    "scores": {
+      "sun": 85,
+      "food": 76,
+      "drink": 76,
+      "vibe": 82
+    },
     "patioType": "waterfront",
     "sunDetails": "South-facing on Lake Union, full afternoon sun with skyline and marina views",
     "mealType": "both",
@@ -223,16 +372,27 @@
     "websiteUrl": "https://www.100poundclam.com/",
     "googleMapsUrl": "https://maps.google.com/?q=The+100+Pound+Clam+Seattle",
     "address": "1001 Fairview Ave N, Seattle, WA 98109",
-    "coordinates": { "lat": 47.6275, "lng": -122.3380 }
+    "coordinates": {
+      "lat": 47.6275,
+      "lng": -122.338
+    }
   },
   {
     "id": "happy-crab",
     "name": "Happy Crab",
     "neighborhood": "Ballard",
-    "description": "A small but stunning waterfront patio on Shilshole Bay where they pour Cajun seafood boils straight onto the table. Pick your seafood, sauce, and spice level, then dig in with the Olympic Mountains in the distance and tugboats drifting past. The patio is intimate — only a handful of tables — but the west-facing view is hard to beat.",
+    "description": "A small but stunning waterfront patio on Shilshole Bay where they pour Cajun seafood boils straight onto the table. Pick your seafood, sauce, and spice level, then dig in with the Olympic Mountains in the distance and tugboats drifting past. The patio is intimate \u2014 only a handful of tables \u2014 but the west-facing view is hard to beat.",
     "comeHereFor": "Cajun seafood boils on a small Shilshole Bay patio",
-    "images": ["/patios/happy-crab/01.png", "/patios/happy-crab/02.png"],
-    "scores": { "sun": 28, "foodDrink": 22, "theSpace": 24, "total": 74 },
+    "images": [
+      "/patios/happy-crab/01.png",
+      "/patios/happy-crab/02.png"
+    ],
+    "scores": {
+      "sun": 85,
+      "food": 67,
+      "drink": 67,
+      "vibe": 71
+    },
     "patioType": "waterfront",
     "sunDetails": "West-facing on Shilshole Bay, full afternoon sun and Olympic Mountain sunsets",
     "mealType": "dinner",
@@ -241,16 +401,28 @@
     "websiteUrl": "https://www.happycrab.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Happy+Crab+Seaview+Seattle",
     "address": "6135 Seaview Ave NW, Seattle, WA 98107",
-    "coordinates": { "lat": 47.6727, "lng": -122.4071 }
+    "coordinates": {
+      "lat": 47.6727,
+      "lng": -122.4071
+    }
   },
   {
     "id": "bowriders-grill",
     "name": "Bowriders Grill",
     "neighborhood": "Lake Union",
-    "description": "A genuinely hidden waterfront spot on the east end of Lake Union — you can pull up by boat or walk in from Northlake Way. The dockside patio looks straight across the water at the downtown skyline, with string lights and fire pits keeping it going past sunset. Casual grill food, dog-friendly, and the kind of unpretentious vibe that makes you want to linger for one more round.",
+    "description": "A genuinely hidden waterfront spot on the east end of Lake Union \u2014 you can pull up by boat or walk in from Northlake Way. The dockside patio looks straight across the water at the downtown skyline, with string lights and fire pits keeping it going past sunset. Casual grill food, dog-friendly, and the kind of unpretentious vibe that makes you want to linger for one more round.",
     "comeHereFor": "Dockside drinks and skyline sunsets on Lake Union",
-    "images": ["/patios/bowriders-grill/01.png", "/patios/bowriders-grill/02.png", "/patios/bowriders-grill/03.png"],
-    "scores": { "sun": 27, "foodDrink": 23, "theSpace": 27, "total": 77 },
+    "images": [
+      "/patios/bowriders-grill/01.png",
+      "/patios/bowriders-grill/02.png",
+      "/patios/bowriders-grill/03.png"
+    ],
+    "scores": {
+      "sun": 82,
+      "food": 70,
+      "drink": 70,
+      "vibe": 79
+    },
     "patioType": "waterfront",
     "sunDetails": "South-facing waterfront deck on Lake Union, full afternoon and sunset sun toward downtown skyline",
     "mealType": "both",
@@ -259,16 +431,29 @@
     "websiteUrl": "https://www.bowridersgrill.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Bowriders+Grill+Seattle",
     "address": "101 NE Northlake Way, Seattle, WA 98105",
-    "coordinates": { "lat": 47.6485, "lng": -122.3180 }
+    "coordinates": {
+      "lat": 47.6485,
+      "lng": -122.318
+    }
   },
   {
     "id": "ivars-south-lake-union",
     "name": "Ivar's Salmon House",
     "neighborhood": "South Lake Union",
-    "description": "A Seattle institution with a massive waterfront deck on Lake Union. You're watching seaplanes take off and sailboats cruise by while eating some of the freshest salmon in the city. The patio is huge and unobstructed — one of the best spots to soak up a summer afternoon.",
+    "description": "A Seattle institution with a massive waterfront deck on Lake Union. You're watching seaplanes take off and sailboats cruise by while eating some of the freshest salmon in the city. The patio is huge and unobstructed \u2014 one of the best spots to soak up a summer afternoon.",
     "comeHereFor": "Waterfront deck with seaplane views",
-    "images": ["/patios/ivars-south-lake-union/02.png", "/patios/ivars-south-lake-union/03.png", "/patios/ivars-south-lake-union/04.png", "/patios/ivars-south-lake-union/01.jpg"],
-    "scores": { "sun": 26, "foodDrink": 23, "theSpace": 27, "total": 76 },
+    "images": [
+      "/patios/ivars-south-lake-union/02.png",
+      "/patios/ivars-south-lake-union/03.png",
+      "/patios/ivars-south-lake-union/04.png",
+      "/patios/ivars-south-lake-union/01.jpg"
+    ],
+    "scores": {
+      "sun": 79,
+      "food": 70,
+      "drink": 70,
+      "vibe": 79
+    },
     "patioType": "waterfront",
     "sunDetails": "West-facing waterfront deck, afternoon sun until sunset",
     "mealType": "both",
@@ -278,16 +463,28 @@
     "websiteUrl": "https://www.ivars.com/restaurants/salmon-house",
     "googleMapsUrl": "https://maps.google.com/?q=Ivars+Salmon+House+Seattle",
     "address": "401 NE Northlake Way, Seattle, WA 98105",
-    "coordinates": { "lat": 47.6425, "lng": -122.3361 }
+    "coordinates": {
+      "lat": 47.6425,
+      "lng": -122.3361
+    }
   },
   {
     "id": "maggie-bluffs",
     "name": "Maggie Bluffs",
     "neighborhood": "Magnolia",
-    "description": "Tucked into Elliott Bay Marina under the Magnolia Bluff, Maggie Bluffs feels like a hidden marina hangout — sailboats and yachts on one side, the bluff rising up behind, and red umbrellas everywhere. Casual American grill food and a friendly, salty crowd. Easy to spend a sunny afternoon here losing track of time.",
+    "description": "Tucked into Elliott Bay Marina under the Magnolia Bluff, Maggie Bluffs feels like a hidden marina hangout \u2014 sailboats and yachts on one side, the bluff rising up behind, and red umbrellas everywhere. Casual American grill food and a friendly, salty crowd. Easy to spend a sunny afternoon here losing track of time.",
     "comeHereFor": "Marina patio under Magnolia Bluff with sailboat views",
-    "images": ["/patios/maggie-bluffs/01.png", "/patios/maggie-bluffs/02.png", "/patios/maggie-bluffs/03.png"],
-    "scores": { "sun": 28, "foodDrink": 22, "theSpace": 26, "total": 76 },
+    "images": [
+      "/patios/maggie-bluffs/01.png",
+      "/patios/maggie-bluffs/02.png",
+      "/patios/maggie-bluffs/03.png"
+    ],
+    "scores": {
+      "sun": 85,
+      "food": 67,
+      "drink": 67,
+      "vibe": 76
+    },
     "patioType": "waterfront",
     "sunDetails": "West-facing on Elliott Bay Marina, full afternoon and sunset sun",
     "mealType": "both",
@@ -296,7 +493,10 @@
     "websiteUrl": "https://www.maggiebluffs.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Maggie+Bluffs+Marina+Grill+Seattle",
     "address": "2601 W Marina Pl, Seattle, WA 98199",
-    "coordinates": { "lat": 47.6314, "lng": -122.4012 }
+    "coordinates": {
+      "lat": 47.6314,
+      "lng": -122.4012
+    }
   },
   {
     "id": "phinney-station",
@@ -304,8 +504,16 @@
     "neighborhood": "Phinney Ridge",
     "description": "A two-level patio bar on Greenwood Ave with the loose, friendly energy of a great neighborhood spot. The lower deck is astroturf with picnic tables, fire pits, and dogs everywhere; the upper deck has white umbrellas, string lights, and a slightly more grown-up cocktail-and-slushie vibe. Heaters and a covered upper level mean it works year-round.",
     "comeHereFor": "Two-level neighborhood patio with slushies, fire pits, and dogs",
-    "images": ["/patios/phinney-station/01.jpg", "/patios/phinney-station/02.jpg"],
-    "scores": { "sun": 26, "foodDrink": 22, "theSpace": 28, "total": 76 },
+    "images": [
+      "/patios/phinney-station/01.jpg",
+      "/patios/phinney-station/02.jpg"
+    ],
+    "scores": {
+      "sun": 79,
+      "food": 67,
+      "drink": 67,
+      "vibe": 82
+    },
     "patioType": "streetside",
     "sunDetails": "South/west-facing two-level patio, midday and afternoon sun on the upper deck",
     "mealType": "both",
@@ -315,16 +523,26 @@
     "websiteUrl": "https://www.phinneystation.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Phinney+Station+Seattle",
     "address": "7418 Greenwood Ave N, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6831, "lng": -122.3550 }
+    "coordinates": {
+      "lat": 47.6831,
+      "lng": -122.355
+    }
   },
   {
     "id": "citizen-collective",
     "name": "Citizen Collective",
     "neighborhood": "Lower Queen Anne",
-    "description": "One of the coolest outdoor spaces in the city — a sprawling astroturf beer garden with fire pits, yard games, a separate outdoor bar, and the Space Needle literally looming over you. Dog-friendly and 21+ in the campfire garden, which gives it a fun, loose neighborhood bar energy.",
+    "description": "One of the coolest outdoor spaces in the city \u2014 a sprawling astroturf beer garden with fire pits, yard games, a separate outdoor bar, and the Space Needle literally looming over you. Dog-friendly and 21+ in the campfire garden, which gives it a fun, loose neighborhood bar energy.",
     "comeHereFor": "Fire pit drinks under the Space Needle with yard games",
-    "images": ["/patios/citizen-collective/01.jpg"],
-    "scores": { "sun": 22, "foodDrink": 22, "theSpace": 30, "total": 74 },
+    "images": [
+      "/patios/citizen-collective/01.jpg"
+    ],
+    "scores": {
+      "sun": 67,
+      "food": 67,
+      "drink": 67,
+      "vibe": 88
+    },
     "patioType": "beer-garden",
     "sunDetails": "South/east-facing, morning and midday sun, Space Needle backdrop",
     "mealType": "drinks",
@@ -334,7 +552,10 @@
     "websiteUrl": "https://www.citizencampfire.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Citizen+Campfire+Seattle",
     "address": "706 Taylor Ave N, Seattle, WA 98109",
-    "coordinates": { "lat": 47.6257, "lng": -122.3460 }
+    "coordinates": {
+      "lat": 47.6257,
+      "lng": -122.346
+    }
   },
   {
     "id": "fremont-social",
@@ -342,8 +563,16 @@
     "neighborhood": "Fremont",
     "description": "Tucked behind Mischief Distillery on the Fremont canal, The Fremont Social pairs an intimate string-lit courtyard with a glass-walled rooftop bar overhead. The cocktails are excellent (it's a distillery, after all), the food leans New American with raw bar standouts, and the whole space has the unhurried, evening-into-night vibe you want when the weather cooperates.",
     "comeHereFor": "Distillery cocktails on a string-lit courtyard with a rooftop above",
-    "images": ["/patios/fremont-social/01.jpg", "/patios/fremont-social/02.jpg"],
-    "scores": { "sun": 22, "foodDrink": 25, "theSpace": 27, "total": 74 },
+    "images": [
+      "/patios/fremont-social/01.jpg",
+      "/patios/fremont-social/02.jpg"
+    ],
+    "scores": {
+      "sun": 67,
+      "food": 76,
+      "drink": 76,
+      "vibe": 79
+    },
     "patioType": "courtyard",
     "sunDetails": "Courtyard patio, late-afternoon and evening sun; rooftop deck for golden hour",
     "mealType": "both",
@@ -353,7 +582,10 @@
     "websiteUrl": "https://www.fremontmischief.com/the-fremont-social",
     "googleMapsUrl": "https://maps.google.com/?q=The+Fremont+Social+Seattle",
     "address": "132 N Canal St, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6494, "lng": -122.3578 }
+    "coordinates": {
+      "lat": 47.6494,
+      "lng": -122.3578
+    }
   },
   {
     "id": "bongos",
@@ -361,8 +593,16 @@
     "neighborhood": "Green Lake",
     "description": "Bongos brings full Caribbean energy to Green Lake. The outdoor patio is colorful, open-air, and gets absolutely drenched in sun all day. If you want jerk chicken, rum drinks, and a laid-back island vibe in the middle of Seattle, this is your spot.",
     "comeHereFor": "Caribbean vibes and full sun all day",
-    "images": ["/patios/bongos/02.jpg", "/patios/bongos/01.jpg"],
-    "scores": { "sun": 27, "foodDrink": 23, "theSpace": 23, "total": 73 },
+    "images": [
+      "/patios/bongos/02.jpg",
+      "/patios/bongos/01.jpg"
+    ],
+    "scores": {
+      "sun": 82,
+      "food": 70,
+      "drink": 70,
+      "vibe": 68
+    },
     "patioType": "garden",
     "sunDetails": "Open-air Caribbean patio, full sun all day",
     "mealType": "both",
@@ -372,16 +612,30 @@
     "websiteUrl": "https://www.bongosseattle.com",
     "googleMapsUrl": "https://maps.google.com/?q=Bongos+Seattle+Green+Lake",
     "address": "6420 E Green Lake Way N, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6811, "lng": -122.3440 }
+    "coordinates": {
+      "lat": 47.6811,
+      "lng": -122.344
+    }
   },
   {
     "id": "fremont-brewing",
     "name": "Fremont Brewing",
     "neighborhood": "Fremont",
-    "description": "Fremont Brewing's Urban Beer Garden is exactly what the name promises — a sprawling outdoor space with picnic tables, string lights, and board games tucked into the heart of Fremont. Covered and heated so you can nurse a pint even on a drizzly afternoon. Dog-and-kid-friendly with zero pretension.",
+    "description": "Fremont Brewing's Urban Beer Garden is exactly what the name promises \u2014 a sprawling outdoor space with picnic tables, string lights, and board games tucked into the heart of Fremont. Covered and heated so you can nurse a pint even on a drizzly afternoon. Dog-and-kid-friendly with zero pretension.",
     "comeHereFor": "Craft beer in a dog-friendly all-weather beer garden",
-    "images": ["/patios/fremont-brewing/01.jpg", "/patios/fremont-brewing/02.jpg", "/patios/fremont-brewing/03.jpg", "/patios/fremont-brewing/04.jpg", "/patios/fremont-brewing/05.jpg"],
-    "scores": { "sun": 22, "foodDrink": 24, "theSpace": 26, "total": 72 },
+    "images": [
+      "/patios/fremont-brewing/01.jpg",
+      "/patios/fremont-brewing/02.jpg",
+      "/patios/fremont-brewing/03.jpg",
+      "/patios/fremont-brewing/04.jpg",
+      "/patios/fremont-brewing/05.jpg"
+    ],
+    "scores": {
+      "sun": 67,
+      "food": 73,
+      "drink": 73,
+      "vibe": 76
+    },
     "patioType": "beer-garden",
     "sunDetails": "South/southwest-facing, afternoon sun reaches picnic tables",
     "mealType": "drinks",
@@ -391,16 +645,27 @@
     "websiteUrl": "https://www.fremontbrewing.com/fremont-urban-beer-garden",
     "googleMapsUrl": "https://maps.google.com/?q=Fremont+Brewing+Seattle",
     "address": "1050 N 34th St, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6499, "lng": -122.3499 }
+    "coordinates": {
+      "lat": 47.6499,
+      "lng": -122.3499
+    }
   },
   {
     "id": "terra-plata",
     "name": "Terra Plata",
     "neighborhood": "Capitol Hill",
-    "description": "A rooftop herb garden on Capitol Hill with some of the most thoughtful farm-to-table food in the neighborhood. The patio is intimate and green — you're eating surrounded by the ingredients they're cooking with. The cocktails are seasonal and always interesting.",
+    "description": "A rooftop herb garden on Capitol Hill with some of the most thoughtful farm-to-table food in the neighborhood. The patio is intimate and green \u2014 you're eating surrounded by the ingredients they're cooking with. The cocktails are seasonal and always interesting.",
     "comeHereFor": "Rooftop herb garden with farm-to-table food",
-    "images": ["/patios/terra-plata/02.jpg", "/patios/terra-plata/01.jpg"],
-    "scores": { "sun": 20, "foodDrink": 27, "theSpace": 25, "total": 72 },
+    "images": [
+      "/patios/terra-plata/02.jpg",
+      "/patios/terra-plata/01.jpg"
+    ],
+    "scores": {
+      "sun": 61,
+      "food": 82,
+      "drink": 82,
+      "vibe": 74
+    },
     "patioType": "rooftop",
     "sunDetails": "Rooftop herb garden, afternoon sun with some building shade",
     "mealType": "both",
@@ -410,7 +675,10 @@
     "websiteUrl": "https://www.terraplata.com",
     "googleMapsUrl": "https://maps.google.com/?q=Terra+Plata+Seattle",
     "address": "1501 Melrose Ave, Seattle, WA 98122",
-    "coordinates": { "lat": 47.6143, "lng": -122.3215 }
+    "coordinates": {
+      "lat": 47.6143,
+      "lng": -122.3215
+    }
   },
   {
     "id": "frolik",
@@ -418,8 +686,16 @@
     "neighborhood": "Downtown",
     "description": "Frolik's 4,000 sq ft rooftop is one of the largest outdoor spaces in downtown Seattle. Fire pit bar tables, lounge furniture, ping-pong, giant Jenga, and shuffleboard, all with downtown skyline views. Heated and partially tented year-round, and in winter they bring out curling and igloos.",
     "comeHereFor": "Year-round rooftop games and cocktails above downtown",
-    "images": ["/patios/frolik/02.jpg", "/patios/frolik/01.jpg"],
-    "scores": { "sun": 20, "foodDrink": 23, "theSpace": 28, "total": 71 },
+    "images": [
+      "/patios/frolik/02.jpg",
+      "/patios/frolik/01.jpg"
+    ],
+    "scores": {
+      "sun": 61,
+      "food": 70,
+      "drink": 70,
+      "vibe": 82
+    },
     "patioType": "rooftop",
     "sunDetails": "Downtown rooftop, gets significant summer sun, surrounded by skyscrapers",
     "mealType": "both",
@@ -429,7 +705,10 @@
     "websiteUrl": "https://www.frolikseattle.com/",
     "googleMapsUrl": "https://maps.google.com/?q=Frolik+Kitchen+Cocktails+Seattle",
     "address": "1415 5th Ave, Seattle, WA 98101",
-    "coordinates": { "lat": 47.6080, "lng": -122.3356 }
+    "coordinates": {
+      "lat": 47.608,
+      "lng": -122.3356
+    }
   },
   {
     "id": "old-stove",
@@ -437,8 +716,21 @@
     "neighborhood": "Pike Place Market",
     "description": "Old Stove sits right below Pike Place Market with a sprawling deck overlooking Elliott Bay. Great beer, decent bar food, and one of the most prime patio locations in the city. It gets packed on sunny days for good reason.",
     "comeHereFor": "Beer on the deck overlooking Elliott Bay",
-    "images": ["/patios/old-stove/01.jpg", "/patios/old-stove/02.jpg", "/patios/old-stove/03.png", "/patios/old-stove/04.png", "/patios/old-stove/05.png", "/patios/old-stove/06.png", "/patios/old-stove/07.png"],
-    "scores": { "sun": 23, "foodDrink": 23, "theSpace": 25, "total": 71 },
+    "images": [
+      "/patios/old-stove/01.jpg",
+      "/patios/old-stove/02.jpg",
+      "/patios/old-stove/03.png",
+      "/patios/old-stove/04.png",
+      "/patios/old-stove/05.png",
+      "/patios/old-stove/06.png",
+      "/patios/old-stove/07.png"
+    ],
+    "scores": {
+      "sun": 70,
+      "food": 70,
+      "drink": 70,
+      "vibe": 74
+    },
     "patioType": "deck",
     "sunDetails": "West-facing over Elliott Bay, afternoon sun",
     "mealType": "both",
@@ -448,16 +740,31 @@
     "websiteUrl": "https://www.oldstove.com",
     "googleMapsUrl": "https://maps.google.com/?q=Old+Stove+Brewing+Seattle",
     "address": "1901 Western Ave, Seattle, WA 98101",
-    "coordinates": { "lat": 47.6094, "lng": -122.3422 }
+    "coordinates": {
+      "lat": 47.6094,
+      "lng": -122.3422
+    }
   },
   {
     "id": "dukes",
     "name": "Duke's Seafood",
     "neighborhood": "South Lake Union",
-    "description": "Duke's has been a Seattle staple for years. The South Lake Union location has a big waterfront deck right on Lake Union. Solid seafood, good happy hour, and the kind of reliable patio experience where you know what you're getting — and it's always good.",
+    "description": "Duke's has been a Seattle staple for years. The South Lake Union location has a big waterfront deck right on Lake Union. Solid seafood, good happy hour, and the kind of reliable patio experience where you know what you're getting \u2014 and it's always good.",
     "comeHereFor": "Reliable waterfront seafood on Lake Union",
-    "images": ["/patios/dukes/01.jpg", "/images/places/dukes-01.jpg", "/images/places/dukes-02.jpg", "/images/places/dukes-03.jpg", "/images/places/dukes-04.jpg", "/images/places/dukes-05.jpg"],
-    "scores": { "sun": 24, "foodDrink": 23, "theSpace": 24, "total": 71 },
+    "images": [
+      "/patios/dukes/01.jpg",
+      "/images/places/dukes-01.jpg",
+      "/images/places/dukes-02.jpg",
+      "/images/places/dukes-03.jpg",
+      "/images/places/dukes-04.jpg",
+      "/images/places/dukes-05.jpg"
+    ],
+    "scores": {
+      "sun": 73,
+      "food": 70,
+      "drink": 70,
+      "vibe": 71
+    },
     "patioType": "waterfront",
     "sunDetails": "Waterfront deck on Lake Union, afternoon sun",
     "mealType": "both",
@@ -467,7 +774,10 @@
     "websiteUrl": "https://www.dukesseafood.com",
     "googleMapsUrl": "https://maps.google.com/?q=Dukes+Seafood+South+Lake+Union",
     "address": "901 Fairview Ave N, Seattle, WA 98109",
-    "coordinates": { "lat": 47.6266, "lng": -122.3365 }
+    "coordinates": {
+      "lat": 47.6266,
+      "lng": -122.3365
+    }
   },
   {
     "id": "situ",
@@ -475,8 +785,20 @@
     "neighborhood": "Wallingford",
     "description": "Situ's courtyard patio in Wallingford is a neighborhood favorite. Great tacos, creative cocktails, and a space that feels casual enough for a Tuesday night but fun enough for a Saturday. The patio catches good afternoon sun and has a relaxed, local energy.",
     "comeHereFor": "Tacos and cocktails in a sunny courtyard",
-    "images": ["/patios/situ/01.jpg", "/images/places/situ-taco-01.jpg", "/images/places/situ-taco-02.jpg", "/images/places/situ-taco-03.jpg", "/images/places/situ-taco-04.jpg", "/images/places/situ-taco-05.jpg"],
-    "scores": { "sun": 23, "foodDrink": 24, "theSpace": 23, "total": 70 },
+    "images": [
+      "/patios/situ/01.jpg",
+      "/images/places/situ-taco-01.jpg",
+      "/images/places/situ-taco-02.jpg",
+      "/images/places/situ-taco-03.jpg",
+      "/images/places/situ-taco-04.jpg",
+      "/images/places/situ-taco-05.jpg"
+    ],
+    "scores": {
+      "sun": 70,
+      "food": 73,
+      "drink": 73,
+      "vibe": 68
+    },
     "patioType": "courtyard",
     "sunDetails": "Courtyard patio, good afternoon sun",
     "mealType": "both",
@@ -486,16 +808,27 @@
     "websiteUrl": "https://www.situseattle.com",
     "googleMapsUrl": "https://maps.google.com/?q=Situ+Wallingford+Seattle",
     "address": "4502 Interlake Ave N, Seattle, WA 98103",
-    "coordinates": { "lat": 47.6615, "lng": -122.3356 }
+    "coordinates": {
+      "lat": 47.6615,
+      "lng": -122.3356
+    }
   },
   {
     "id": "magnuson-cafe",
     "name": "Magnuson Cafe and Brewery",
     "neighborhood": "Sand Point",
-    "description": "A proper beer garden tucked inside Magnuson Park. This is the spot for a lazy weekend afternoon — grab a beer, spread out on the open patio, and let the kids run around. The sun exposure is incredible and the park setting makes it feel like a mini-vacation.",
+    "description": "A proper beer garden tucked inside Magnuson Park. This is the spot for a lazy weekend afternoon \u2014 grab a beer, spread out on the open patio, and let the kids run around. The sun exposure is incredible and the park setting makes it feel like a mini-vacation.",
     "comeHereFor": "Beer garden vibes in the park with full sun",
-    "images": ["/patios/magnuson-cafe/01.jpg", "/patios/magnuson-cafe/02.jpg"],
-    "scores": { "sun": 27, "foodDrink": 20, "theSpace": 22, "total": 69 },
+    "images": [
+      "/patios/magnuson-cafe/01.jpg",
+      "/patios/magnuson-cafe/02.jpg"
+    ],
+    "scores": {
+      "sun": 82,
+      "food": 61,
+      "drink": 61,
+      "vibe": 65
+    },
     "patioType": "beer-garden",
     "sunDetails": "Open beer garden near the park, full sun until evening",
     "mealType": "both",
@@ -505,7 +838,10 @@
     "websiteUrl": "https://www.magnusoncafe.com",
     "googleMapsUrl": "https://maps.google.com/?q=Magnuson+Cafe+and+Brewery+Seattle",
     "address": "7302 Sand Point Way NE, Seattle, WA 98115",
-    "coordinates": { "lat": 47.6815, "lng": -122.2569 }
+    "coordinates": {
+      "lat": 47.6815,
+      "lng": -122.2569
+    }
   },
   {
     "id": "local-public-eatery",
@@ -513,8 +849,16 @@
     "neighborhood": "South Lake Union",
     "description": "A big, bustling streetside patio in the heart of SLU. Local Public Eatery nails the casual sports bar vibe with better-than-expected food. The patio is fully covered and heated, so it's a reliable option even on those iffy Seattle days.",
     "comeHereFor": "Covered streetside patio that works rain or shine",
-    "images": ["/patios/local-public-eatery/01.jpg", "/patios/local-public-eatery/02.jpg"],
-    "scores": { "sun": 20, "foodDrink": 22, "theSpace": 23, "total": 65 },
+    "images": [
+      "/patios/local-public-eatery/01.jpg",
+      "/patios/local-public-eatery/02.jpg"
+    ],
+    "scores": {
+      "sun": 61,
+      "food": 67,
+      "drink": 67,
+      "vibe": 68
+    },
     "patioType": "streetside",
     "sunDetails": "South-facing patio with good midday sun",
     "mealType": "both",
@@ -524,16 +868,29 @@
     "websiteUrl": "https://www.localpubliceatery.com",
     "googleMapsUrl": "https://maps.google.com/?q=Local+Public+Eatery+Seattle",
     "address": "401 Westlake Ave N, Seattle, WA 98109",
-    "coordinates": { "lat": 47.6234, "lng": -122.3369 }
+    "coordinates": {
+      "lat": 47.6234,
+      "lng": -122.3369
+    }
   },
   {
     "id": "monsoon-rooftop",
     "name": "Monsoon",
     "neighborhood": "Capitol Hill",
-    "description": "Monsoon's rooftop is a small, intimate perch above Capitol Hill. The Vietnamese food here is some of the best in Seattle — refined and full of flavor. The patio is compact but the combination of excellent food and a unique rooftop setting makes it special.",
+    "description": "Monsoon's rooftop is a small, intimate perch above Capitol Hill. The Vietnamese food here is some of the best in Seattle \u2014 refined and full of flavor. The patio is compact but the combination of excellent food and a unique rooftop setting makes it special.",
     "comeHereFor": "Exceptional Vietnamese food on a rooftop",
-    "images": ["/patios/monsoon-rooftop/01.jpg", "/patios/monsoon-rooftop/02.jpg", "/patios/monsoon-rooftop/03.jpg", "/patios/monsoon-rooftop/04.jpg"],
-    "scores": { "sun": 16, "foodDrink": 28, "theSpace": 21, "total": 65 },
+    "images": [
+      "/patios/monsoon-rooftop/01.jpg",
+      "/patios/monsoon-rooftop/02.jpg",
+      "/patios/monsoon-rooftop/03.jpg",
+      "/patios/monsoon-rooftop/04.jpg"
+    ],
+    "scores": {
+      "sun": 48,
+      "food": 85,
+      "drink": 85,
+      "vibe": 62
+    },
     "patioType": "rooftop",
     "sunDetails": "Small rooftop, some afternoon sun depending on season",
     "mealType": "both",
@@ -543,15 +900,25 @@
     "websiteUrl": "https://www.monsoonrestaurants.com",
     "googleMapsUrl": "https://maps.google.com/?q=Monsoon+Capitol+Hill+Seattle",
     "address": "615 19th Ave E, Seattle, WA 98112",
-    "coordinates": { "lat": 47.6155, "lng": -122.3078 }
+    "coordinates": {
+      "lat": 47.6155,
+      "lng": -122.3078
+    }
   },
   {
     "id": "aqua-verde",
     "name": "Aqua Verde",
     "neighborhood": "University District",
     "description": "",
-    "images": ["/patios/aqua-verde/01.jpg"],
-    "scores": { "sun": 0, "foodDrink": 0, "theSpace": 0, "total": 0 },
+    "images": [
+      "/patios/aqua-verde/01.jpg"
+    ],
+    "scores": {
+      "sun": 0,
+      "food": 0,
+      "drink": 0,
+      "vibe": 0
+    },
     "patioType": "waterfront",
     "sunDetails": "",
     "mealType": "both",
@@ -559,15 +926,25 @@
     "covered": false,
     "googleMapsUrl": "https://maps.google.com/?q=Aqua+Verde+Seattle",
     "address": "1303 NE Boat St, Seattle, WA 98105",
-    "coordinates": { "lat": 47.6516, "lng": -122.3187 }
+    "coordinates": {
+      "lat": 47.6516,
+      "lng": -122.3187
+    }
   },
   {
     "id": "fish-ladder",
     "name": "Fish Ladder",
     "neighborhood": "Ballard",
     "description": "",
-    "images": ["/patios/fish-ladder/01.jpg"],
-    "scores": { "sun": 0, "foodDrink": 0, "theSpace": 0, "total": 0 },
+    "images": [
+      "/patios/fish-ladder/01.jpg"
+    ],
+    "scores": {
+      "sun": 0,
+      "food": 0,
+      "drink": 0,
+      "vibe": 0
+    },
     "patioType": "beer-garden",
     "sunDetails": "",
     "mealType": "both",
@@ -575,15 +952,25 @@
     "covered": false,
     "googleMapsUrl": "https://maps.google.com/?q=Fish+Ladder+Brewing+Ballard+Seattle",
     "address": "5432 Shilshole Ave NW, Seattle, WA 98107",
-    "coordinates": { "lat": 47.6665, "lng": -122.3843 }
+    "coordinates": {
+      "lat": 47.6665,
+      "lng": -122.3843
+    }
   },
   {
     "id": "next-level-lounge",
     "name": "Next Level Lounge",
     "neighborhood": "Downtown",
     "description": "",
-    "images": ["/patios/next-level-lounge/01.jpg"],
-    "scores": { "sun": 0, "foodDrink": 0, "theSpace": 0, "total": 0 },
+    "images": [
+      "/patios/next-level-lounge/01.jpg"
+    ],
+    "scores": {
+      "sun": 0,
+      "food": 0,
+      "drink": 0,
+      "vibe": 0
+    },
     "patioType": "rooftop",
     "sunDetails": "",
     "mealType": "drinks",
@@ -591,6 +978,9 @@
     "covered": false,
     "googleMapsUrl": "https://maps.google.com/?q=Next+Level+Lounge+Seattle",
     "address": "1501 4th Ave, Seattle, WA 98101",
-    "coordinates": { "lat": 47.6100, "lng": -122.3370 }
+    "coordinates": {
+      "lat": 47.61,
+      "lng": -122.337
+    }
   }
 ]

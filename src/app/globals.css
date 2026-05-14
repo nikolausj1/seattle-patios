@@ -2,19 +2,24 @@
 
 @theme inline {
   /* Sunny summer patio palette — warm orange accent */
-  --color-patio-accent: #ea580c;
+  --color-patio-accent: #F2742A;
+  --color-patio-accent-dark: #E0631C;
   --color-patio-accent-light: #f97316;
   --color-patio-accent-glow: #fed7aa;
   --color-patio-slate: #4A5568;
-  --color-patio-navy: #422006;
+  --color-patio-navy: #1c2334;
   --color-patio-cream: #FFFBF5;
   --color-patio-sand: #E8E0D5;
   --color-patio-bark: #92400e;
   --color-patio-charcoal: #2D2D2D;
   --color-patio-warm-white: #FEFCF9;
-  --color-patio-sun: #f59e0b;
-  --color-patio-food: #9f1239;
-  --color-patio-space: #0d9488;
+  --color-patio-sky: #DDEEF5;          /* page background */
+  --color-patio-sky-deep: #C5E2EF;     /* hero sky base */
+  --color-patio-pill-bg: #F1F5F8;
+  --color-patio-sun: #F2742A;
+  --color-patio-food: #2EB572;
+  --color-patio-drink: #E54B4B;
+  --color-patio-vibe: #C13E8C;
 
   /* Fonts */
   --font-serif: var(--font-playfair), Georgia, serif;
@@ -22,9 +27,16 @@
 }
 
 body {
-  background: var(--color-patio-cream);
-  color: var(--color-patio-charcoal);
+  background: var(--color-patio-sky);
+  color: var(--color-patio-navy);
   font-family: var(--font-sans);
+}
+
+/* Reusable "floating card" style — white card on the light-blue page bg */
+.patio-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px -8px rgba(28, 35, 52, 0.12), 0 2px 6px -2px rgba(28, 35, 52, 0.06);
 }
 
 /* Hide scrollbar for filter bar on mobile */

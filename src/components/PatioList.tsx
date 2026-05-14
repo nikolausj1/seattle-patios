@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, type ReactNode } from "react";
 import type { Patio } from "@/types";
+import type { PatioTier } from "@/utils/filters";
+import { tierLabel } from "@/utils/filters";
 import PatioCard from "./PatioCard";
 
 interface PatioListProps {
-  patios: Patio[];
+  tiers: PatioTier[];
+  totalCount: number;
+  patios: Patio[]; // flat list, used to register card refs in stable order
   activePlaceId: string | null;
   hoveredPlaceId: string | null;
   activatedByClick: boolean;
@@ -14,9 +18,12 @@ interface PatioListProps {
   onTopVisibleChange: (id: string | null) => void;
   onScrolled?: (isScrolled: boolean) => void;
   onListInteracted?: () => void;
+  controls?: ReactNode;
 }
 
 export default function PatioList({
+  tiers,
+  totalCount,
   patios,
   activePlaceId,
   hoveredPlaceId,
@@ -26,6 +33,7 @@ export default function PatioList({
   onTopVisibleChange,
   onScrolled,
   onListInteracted,
+  controls,
 }: PatioListProps) {
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,8 +57,6 @@ export default function PatioList({
       const atListTop = container!.scrollTop <= 0;
       const scrollingUp = e.deltaY < 0;
 
-      // Only intercept when scrolling up at the very top of the list
-      // to let the user scroll back up to the hero
       if (scrollingUp && atListTop) {
         e.preventDefault();
         window.scrollBy({ top: e.deltaY });
@@ -134,6 +140,13 @@ export default function PatioList({
     return () => observer.disconnect();
   }, [patios, onTopVisibleChange]);
 
+  const filtersActive = tiers.length > 0 && tiers[0].total > 0;
+  const matchedCount = filtersActive
+    ? tiers
+        .filter((t) => t.matchCount === t.total)
+        .reduce((sum, t) => sum + t.patios.length, 0)
+    : totalCount;
+
   return (
     <div
       ref={containerRef}
@@ -145,7 +158,6 @@ export default function PatioList({
           onScrolled((e.target as HTMLElement).scrollTop > 0);
         }
         if (onListInteracted) onListInteracted();
-        // On first scroll, force the card observer to fire
         if (wasFirstScroll) {
           const container = containerRef.current;
           if (container) {
@@ -161,47 +173,64 @@ export default function PatioList({
         }
       }}
     >
-      {/* Section header */}
-      <div className="text-center pt-8 pb-2">
-        <p className="text-[11px] text-[#b8a080] uppercase tracking-[2px] font-semibold mb-2">
-          Seattle Patios
-        </p>
-        <div className="text-3xl mb-3">☀️</div>
-        <h2 className="font-serif text-[26px] md:text-[28px] text-patio-bark font-bold leading-tight">
-          The Best Patios in Seattle
-        </h2>
-      </div>
-
-      {/* Editorial intro */}
-      <div className="px-1 mb-20">
-        <p className="text-[15px] text-patio-slate/80 leading-[1.75]">
-          <span className="font-serif text-[36px] text-patio-bark float-left leading-[1] mr-1.5 mt-0.5">
-            E
-          </span>
-          very patio is scored on three things: how much sun it gets, how
-          good the food and drinks are, and how great the space itself feels.
-          Sorted by total score, highest first.
-        </p>
-      </div>
+      {/* Filter pills + weather widget (passed in by parent) */}
+      {controls && <div className="pt-4 mb-4 space-y-3">{controls}</div>}
 
       {/* Count */}
       <p className="text-sm text-patio-slate mb-4">
-        {patios.length} patios
+        {filtersActive
+          ? `${matchedCount} of ${totalCount} patios match`
+          : `${totalCount} patios`}
       </p>
 
-      {/* Patio cards */}
+      {/* Tiered patio cards */}
       <div className="space-y-4">
-        {patios.map((patio) => (
-          <PatioCard
-            key={patio.id}
-            ref={setCardRef(patio.id)}
-            patio={patio}
-            isSelected={activePlaceId === patio.id}
-            isHovered={hoveredPlaceId === patio.id}
-            onSelect={onSelectPlace}
-            onHover={onHoverPlace}
-          />
+        {tiers.map((tier, tierIdx) => (
+          <div key={`tier-${tier.matchCount}-${tier.total}`} className="space-y-4">
+            {/* Tier divider — only when filters are active and this isn't the first all-match tier */}
+            {tier.total > 0 && !(tierIdx === 0 && tier.matchCount === tier.total) && (
+              <div className="flex items-center gap-3 pt-2 pb-1">
+                <div className="h-px flex-1 bg-patio-sand/60" />
+                <span
+                  className={`text-[11px] uppercase tracking-wider font-semibold ${
+                    tier.matchCount === 0
+                      ? "text-patio-slate/50"
+                      : "text-patio-bark/70"
+                  }`}
+                >
+                  {tierLabel(tier)}
+                </span>
+                <div className="h-px flex-1 bg-patio-sand/60" />
+              </div>
+            )}
+
+            {tier.patios.map((patio, patioIdx) => (
+              <PatioCard
+                key={patio.id}
+                ref={setCardRef(patio.id)}
+                patio={patio}
+                isTopRated={tierIdx === 0 && patioIdx === 0}
+                isSelected={activePlaceId === patio.id}
+                isHovered={hoveredPlaceId === patio.id}
+                onSelect={onSelectPlace}
+                onHover={onHoverPlace}
+              />
+            ))}
+          </div>
         ))}
+      </div>
+
+      {/* Add a Patio CTA — moved here from the header */}
+      <div className="pt-8 pb-4 text-center">
+        <p className="text-sm text-patio-slate/80 mb-2">
+          Don&rsquo;t see your favorite patio?
+        </p>
+        <a
+          href="mailto:hello@seattlepatiovibes.com?subject=Add%20a%20patio"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium text-patio-accent border border-patio-accent/40 hover:bg-patio-accent hover:text-white transition-colors"
+        >
+          Add a patio →
+        </a>
       </div>
 
       {/* Bottom padding */}

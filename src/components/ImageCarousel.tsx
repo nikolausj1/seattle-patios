@@ -7,12 +7,16 @@ interface ImageCarouselProps {
   images: string[];
   alt: string;
   score: number;
+  scoreColor?: string;
+  subBadge?: string;
 }
 
 export default function ImageCarousel({
   images,
   alt,
   score,
+  scoreColor,
+  subBadge,
 }: ImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -86,11 +90,19 @@ export default function ImageCarousel({
         ))}
       </div>
 
-      {/* Score badge */}
-      <div
-        className="absolute top-3 left-3 bg-patio-accent text-white min-w-[56px] h-14 px-3 rounded-full flex items-center justify-center text-xl font-bold z-10 shadow-md"
-      >
-        {score}
+      {/* Score badge — overall score, color tiered, white ring like the map markers, optional sub-tag below */}
+      <div className="absolute top-3 left-3 z-10 flex flex-col items-center gap-1">
+        <div
+          className="text-white min-w-[56px] h-14 px-3 rounded-full flex items-center justify-center text-xl font-bold ring-[3px] ring-white shadow-md"
+          style={scoreColor ? { backgroundColor: scoreColor } : undefined}
+        >
+          {score}
+        </div>
+        {subBadge && (
+          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-black/70 text-white">
+            {subBadge}
+          </span>
+        )}
       </div>
 
       {/* Arrow buttons */}
