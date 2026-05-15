@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef, useMemo } from "react";
 import type { Patio } from "@/types";
 import type { FilterKey } from "@/utils/filters";
-import { FILTERS, FILTER_BY_KEY, groupIntoTiers } from "@/utils/filters";
+import { FILTERS, FILTER_BY_KEY, getFilterOrder, groupIntoTiers } from "@/utils/filters";
 import { UserLocationProvider } from "@/context/UserLocationContext";
 import FilterPills from "./FilterPills";
 import WeatherWidget from "./WeatherWidget";
@@ -26,6 +26,13 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
   // overflow is only enabled once the hero is gone, so the first swipe on
   // mobile pushes the hero off the page rather than scrolling the list.
   const [heroOffScreen, setHeroOffScreen] = useState(false);
+
+  // Current weather flags (current hour + next 2). Drives the filter chip
+  // ordering: rainy → Covered to the front, cold → Heated to the front.
+  const [weatherState, setWeatherState] = useState<{
+    cold: boolean;
+    rainy: boolean;
+  }>({ cold: false, rainy: false });
 
   useEffect(() => {
     const hero = document.querySelector("[data-hero]");
@@ -94,6 +101,12 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
     [activeFilters]
   );
 
+  // Filter chip order, weather-dependent.
+  const orderedFilterKeys = useMemo(
+    () => getFilterOrder(weatherState),
+    [weatherState]
+  );
+
   const counts = useMemo(() => {
     const out = {} as Record<FilterKey, number>;
     for (const f of FILTERS) {
@@ -107,6 +120,7 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
       active={activeFilters}
       onApplyChips={applyChips}
       onClearChips={removeChips}
+      onWeatherChange={setWeatherState}
     />
   );
 
@@ -114,6 +128,7 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
   // in-list bar; rendered twice so each can have its own positioning.
   const filterPillsEl = (
     <FilterPills
+      orderedKeys={orderedFilterKeys}
       active={activeFilters}
       counts={counts}
       totalCount={patios.length}

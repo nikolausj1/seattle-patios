@@ -8,6 +8,10 @@ interface WeatherWidgetProps {
   active: ReadonlySet<FilterKey>;
   onApplyChips: (chips: FilterKey[]) => void;
   onClearChips: (chips: FilterKey[]) => void;
+  /** Reports the current/next-2-hours weather condition flags so the parent
+   * can re-order the filter chips (cold → Heated front, rainy → Covered
+   * front). */
+  onWeatherChange?: (state: { cold: boolean; rainy: boolean }) => void;
 }
 
 interface HourPoint {
@@ -151,6 +155,7 @@ export default function WeatherWidget({
   active,
   onApplyChips,
   onClearChips,
+  onWeatherChange,
 }: WeatherWidgetProps) {
   const [forecast, setForecast] = useState<Forecast | null>(null);
   const [loading, setLoading] = useState(true);
@@ -167,6 +172,19 @@ export default function WeatherWidget({
       cancelled = true;
     };
   }, []);
+
+  // Report cold/rainy flags for the current hour + next 2 hours so the
+  // parent can re-shuffle the filter chip order accordingly.
+  useEffect(() => {
+    if (!forecast || !onWeatherChange) return;
+    const next2h = forecast.next4h.slice(0, 2);
+    const window = [forecast.current, ...next2h];
+    const cold = window.some((h) => h.temp < 55);
+    const rainy = window.some(
+      (h) => h.precip > 0 || isPrecipCode(h.weatherCode)
+    );
+    onWeatherChange({ cold, rainy });
+  }, [forecast, onWeatherChange]);
 
   const chips = useMemo(
     () => (forecast ? recommendedChips(forecast) : []),

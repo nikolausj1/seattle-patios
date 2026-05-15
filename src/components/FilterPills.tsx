@@ -1,9 +1,10 @@
 "use client";
 
 import type { FilterKey } from "@/utils/filters";
-import { FILTERS } from "@/utils/filters";
+import { FILTER_BY_KEY } from "@/utils/filters";
 
 interface FilterPillsProps {
+  orderedKeys: FilterKey[];
   active: ReadonlySet<FilterKey>;
   counts: Record<FilterKey, number>;
   totalCount: number;
@@ -67,13 +68,22 @@ function FilterIcon({ name }: { name: FilterKey }) {
           <path d="M12 12v7a2 2 0 0 0 4 0" />
         </svg>
       );
-    case "dinnerDrinks":
+    case "food":
       return (
         <svg {...common}>
-          <path d="M8 3v8a2 2 0 1 1-4 0V3" />
-          <path d="M6 11v10" />
-          <path d="M17 3c-1 4-1 6 0 8v10" />
-          <path d="M17 3c1 4 1 6 0 8" />
+          <path d="M5 3v8a2 2 0 0 0 2 2v8" />
+          <path d="M5 3l0 8" />
+          <path d="M9 3v8a2 2 0 0 1-2 2" />
+          <path d="M16 3c-1 4-1 6 0 8v10" />
+          <path d="M16 3c1 4 1 6 0 8" />
+        </svg>
+      );
+    case "cocktails":
+      return (
+        <svg {...common}>
+          <path d="M4 4h16l-8 9-8-9z" />
+          <path d="M12 13v8" />
+          <path d="M8 21h8" />
         </svg>
       );
     case "greatViews":
@@ -89,6 +99,7 @@ function FilterIcon({ name }: { name: FilterKey }) {
 }
 
 export default function FilterPills({
+  orderedKeys,
   active,
   counts,
   totalCount,
@@ -127,13 +138,14 @@ export default function FilterPills({
         {/* Divider */}
         <div className="h-6 w-px bg-patio-sky shrink-0 mx-1.5" />
 
-        {FILTERS.map((f, idx) => {
-          const isOn = active.has(f.key);
+        {orderedKeys.map((key, idx) => {
+          const f = FILTER_BY_KEY[key];
+          const isOn = active.has(key);
           return (
-            <span key={f.key} className="flex items-center shrink-0">
+            <span key={key} className="flex items-center shrink-0">
               <button
                 type="button"
-                onClick={() => onToggle(f.key)}
+                onClick={() => onToggle(key)}
                 className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                   isOn
                     ? "bg-patio-accent text-white"
@@ -141,7 +153,7 @@ export default function FilterPills({
                 }`}
                 aria-pressed={isOn}
               >
-                <FilterIcon name={f.key} />
+                <FilterIcon name={key} />
                 {f.label}
                 <span
                   className={`text-[11px] tabular-nums px-1.5 py-0.5 rounded-full ${
@@ -150,10 +162,10 @@ export default function FilterPills({
                       : "bg-patio-pill-bg text-patio-navy/60"
                   }`}
                 >
-                  {counts[f.key]}
+                  {counts[key]}
                 </span>
               </button>
-              {idx < FILTERS.length - 1 && (
+              {idx < orderedKeys.length - 1 && (
                 <div className="h-6 w-px bg-patio-sky shrink-0" />
               )}
             </span>

@@ -2,13 +2,14 @@ import type { Patio } from "@/types";
 import { overallScore } from "@/types";
 
 export type FilterKey =
+  | "greatViews"
   | "waterfront"
   | "rooftop"
   | "dogFriendly"
+  | "cocktails"
+  | "food"
   | "heated"
-  | "covered"
-  | "dinnerDrinks"
-  | "greatViews";
+  | "covered";
 
 export interface FilterDef {
   key: FilterKey;
@@ -35,15 +36,51 @@ function hasGreatViews(p: Patio): boolean {
   return descMatches(p, /\b(view|skyline|sunset|mountain|lake|sound)s?\b/i);
 }
 
+function hasFood(p: Patio): boolean {
+  return p.mealType === "dinner" || p.mealType === "both";
+}
+
+function hasCocktails(p: Patio): boolean {
+  return p.mealType === "drinks" || p.mealType === "both";
+}
+
+// Base order — matches the "nice weather" ordering from the design.
+// `getFilterOrder` shuffles weather-relevant chips (heated, covered) to the
+// front when the forecast calls for them.
 export const FILTERS: FilterDef[] = [
-  { key: "waterfront",  label: "Waterfront",     icon: "🌊", predicate: (p) => p.patioType === "waterfront" },
-  { key: "rooftop",     label: "Rooftop",        icon: "🏙️", predicate: (p) => p.patioType === "rooftop" },
-  { key: "dogFriendly", label: "Dog Friendly",   icon: "🐶", predicate: isDogFriendly },
-  { key: "heated",      label: "Heated",         icon: "🔥", predicate: (p) => p.heated === true },
-  { key: "covered",     label: "Covered",        icon: "☂️", predicate: (p) => p.covered === true },
-  { key: "dinnerDrinks",label: "Dinner & Drinks",icon: "🍽️", predicate: (p) => p.mealType === "both" },
-  { key: "greatViews",  label: "Great Views",    icon: "🌅", predicate: hasGreatViews },
+  { key: "greatViews",  label: "Great Views",  icon: "🌅", predicate: hasGreatViews },
+  { key: "waterfront",  label: "Waterfront",   icon: "🌊", predicate: (p) => p.patioType === "waterfront" },
+  { key: "rooftop",     label: "Rooftop",      icon: "🏙️", predicate: (p) => p.patioType === "rooftop" },
+  { key: "dogFriendly", label: "Dog Friendly", icon: "🐶", predicate: isDogFriendly },
+  { key: "cocktails",   label: "Cocktails",    icon: "🍸", predicate: hasCocktails },
+  { key: "food",        label: "Food",         icon: "🍽️", predicate: hasFood },
+  { key: "heated",      label: "Heated",       icon: "🔥", predicate: (p) => p.heated === true },
+  { key: "covered",     label: "Covered",      icon: "☂️", predicate: (p) => p.covered === true },
 ];
+
+const BASE_ORDER: FilterKey[] = FILTERS.map((f) => f.key);
+
+/**
+ * Re-order filter chips based on the current weather conditions.
+ * - Cold: Heated jumps to the front.
+ * - Rainy: Covered jumps to the front.
+ * - Cold AND rainy: Covered, then Heated, at the front.
+ * Otherwise the base order is returned unchanged.
+ */
+export function getFilterOrder({
+  cold,
+  rainy,
+}: {
+  cold: boolean;
+  rainy: boolean;
+}): FilterKey[] {
+  const front: FilterKey[] = [];
+  if (rainy) front.push("covered");
+  if (cold) front.push("heated");
+  if (front.length === 0) return BASE_ORDER;
+  const rest = BASE_ORDER.filter((k) => !front.includes(k));
+  return [...front, ...rest];
+}
 
 export const FILTER_BY_KEY: Record<FilterKey, FilterDef> = Object.fromEntries(
   FILTERS.map((f) => [f.key, f])
