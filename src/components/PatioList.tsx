@@ -151,7 +151,7 @@ export default function PatioList({
   return (
     <div
       ref={containerRef}
-      className={`h-full px-4 pb-4 md:pt-4 space-y-4 overflow-x-hidden ${
+      className={`h-full px-4 md:pt-4 space-y-4 overflow-x-hidden ${
         heroOffScreen
           ? "overflow-y-auto"
           : "overflow-y-hidden touch-pan-y"
@@ -194,7 +194,7 @@ export default function PatioList({
           filter bar. On desktop the wrapper dissolves visually (no bg, no
           rounded corners, no negative margin) since the list panel itself is
           already a white card. */}
-      <div className="bg-white rounded-t-2xl -mx-4 px-4 pt-4 md:bg-transparent md:rounded-none md:mx-0 md:px-0 md:pt-0">
+      <div className="bg-white rounded-t-2xl -mx-4 px-4 pt-4 min-h-full md:bg-transparent md:rounded-none md:mx-0 md:px-0 md:pt-0 md:min-h-0">
         {/* Weather widget (passed in by parent) */}
         {controls && <div className="mb-4 space-y-3">{controls}</div>}
 

@@ -105,29 +105,22 @@ const PatioCard = forwardRef<HTMLDivElement, PatioCardProps>(
 
         {/* Content */}
         <div className="px-4 pt-3 pb-4">
-          {/* Name row with optional Heated badge */}
-          <div className="flex items-start justify-between gap-2">
-            <div className="min-w-0">
-              <h3 className="text-lg font-bold text-patio-navy leading-snug">
-                {patio.name}
-              </h3>
-              <div className="text-xs text-patio-navy/55 mt-0.5">
-                {patio.neighborhood}
-                {patio.patioType === "waterfront" && " · Waterfront"}
-                {patio.patioType === "rooftop" && " · Rooftop"}
-              </div>
-            </div>
-            <div className="flex items-center gap-1.5 shrink-0">
-              {distance && (
-                <span className="text-[11px] text-patio-navy/45 whitespace-nowrap flex items-center gap-1">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  {distance} mi
-                </span>
-              )}
-            </div>
+          {/* Name */}
+          <h3 className="text-lg font-bold text-patio-navy leading-snug">
+            {patio.name}
+          </h3>
+          {/* Neighborhood · type, with distance on the right */}
+          <div className="flex items-center justify-between gap-2 mt-0.5">
+            <span className="text-xs text-patio-navy/55 truncate">
+              {patio.neighborhood}
+              {patio.patioType === "waterfront" && " · Waterfront"}
+              {patio.patioType === "rooftop" && " · Rooftop"}
+            </span>
+            {distance && (
+              <span className="text-xs text-patio-navy/55 whitespace-nowrap shrink-0">
+                {distance} miles away
+              </span>
+            )}
           </div>
 
           {/* Matched filter pills row */}
