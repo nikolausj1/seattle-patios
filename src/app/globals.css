@@ -67,16 +67,7 @@ body {
   transition: all 0.2s ease;
 }
 
-/* Mobile only: snap the page so the user can't stop scrolling with the hero
- * half-visible at the top. Hero or guide-anchor get aligned to the scroll
- * container's start. Mandatory ensures the snap happens on release no matter
- * where the user's finger landed. Desktop keeps natural scrolling. */
-@media (max-width: 767px) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
-  [data-hero],
-  [data-guide-anchor] {
-    scroll-snap-align: start;
-  }
-}
+/* CSS scroll-snap on the page caused fights with iOS Safari's dynamic URL
+ * bar (the viewport size changes mid-scroll, the snap target moves, the user
+ * sees a hero peek at the top). The snap is now handled programmatically in
+ * InteractiveGuide instead. */
