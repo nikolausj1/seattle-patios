@@ -76,6 +76,20 @@ export default function PatioList({
     return () => container.removeEventListener("touchstart", handleTouchStart);
   }, [onListInteracted]);
 
+  // When the active filter set changes, jump the list scroll back to the top
+  // so the user sees the first matching patio rather than mid-list cards from
+  // the previous filter.
+  const filterStateKey = activeFilterLabels.join("|");
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    isScrollingProgrammatically.current = true;
+    container.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      isScrollingProgrammatically.current = false;
+    }, 600);
+  }, [filterStateKey]);
+
   // Scroll list to card on click activation
   useEffect(() => {
     if (activePlaceId && activatedByClick) {
