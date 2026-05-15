@@ -66,3 +66,16 @@ body {
 .patio-marker {
   transition: all 0.2s ease;
 }
+
+/* Mobile only: snap the page so the user can't stop scrolling with the hero
+ * half-visible at the top. Hero or guide-anchor get aligned to the scroll
+ * container's start. Desktop keeps natural scrolling. */
+@media (max-width: 767px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+  [data-hero],
+  [data-guide-anchor] {
+    scroll-snap-align: start;
+  }
+}

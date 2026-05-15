@@ -187,7 +187,7 @@ export default function PatioList({
           this spacer once the user starts scrolling, so the gap only shows at
           the very top of the list. Desktop has its own panel chrome — the
           spacer collapses there. */}
-      <div className="h-3 md:hidden" />
+      <div className="h-1.5 md:hidden" />
 
       {/* White wrapper around the rest of the list content. On mobile this
           gives us a single white "sheet" that scrolls up under the sticky
