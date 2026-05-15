@@ -99,15 +99,18 @@ export function groupIntoTiers(
 }
 
 export function tierLabel(tier: PatioTier): string {
-  const { matchCount, total } = tier;
+  const { matchCount, total, patios } = tier;
   if (total === 0) return "";
+  const n = patios.length;
+  const noun = n === 1 ? "patio" : "patios";
+  const verb = n === 1 ? "matches" : "match";
   if (matchCount === total) {
     return total === 1
-      ? "Matches your filter"
-      : `Matches all ${total} filters`;
+      ? `${n} ${noun} ${verb} your filter`
+      : `${n} ${noun} ${verb} all ${total} selected filters`;
   }
   if (matchCount === 0) {
-    return "Doesn't match any of your filters";
+    return `${n} ${noun} ${verb} none of the ${total} selected filters`;
   }
-  return `Matches ${matchCount} of ${total} filters`;
+  return `${n} ${noun} ${verb} ${matchCount} of ${total} selected filters`;
 }

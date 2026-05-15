@@ -9,7 +9,7 @@ const pillars = [
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section data-hero className="relative isolate overflow-hidden">
       {/* Background photo — full bleed behind everything */}
       <Image
         src="/images/header.png"

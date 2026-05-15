@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback, useRef, useMemo } from "react";
+import { useState, useCallback, useEffect, useRef, useMemo } from "react";
 import type { Patio } from "@/types";
 import type { FilterKey } from "@/utils/filters";
-import { FILTERS, groupIntoTiers } from "@/utils/filters";
+import { FILTERS, FILTER_BY_KEY, groupIntoTiers } from "@/utils/filters";
 import { UserLocationProvider } from "@/context/UserLocationContext";
 import FilterPills from "./FilterPills";
 import WeatherWidget from "./WeatherWidget";
@@ -21,6 +21,25 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
   );
 
   const activatedByClick = useRef(false);
+
+  // Track whether the hero has scrolled off the viewport. The list's scroll
+  // overflow is only enabled once the hero is gone, so the first swipe on
+  // mobile pushes the hero off the page rather than scrolling the list.
+  const [heroOffScreen, setHeroOffScreen] = useState(false);
+
+  useEffect(() => {
+    const hero = document.querySelector("[data-hero]");
+    if (!hero) return;
+    // Treat the hero as "off" when its visible ratio falls below 2% — this fires
+    // a hair before the hero is fully gone, so the list overflow is unlocked
+    // even if the page can't quite scroll the very last few pixels of hero away.
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroOffScreen(entry.intersectionRatio < 0.02),
+      { threshold: [0, 0.02, 1] }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   const handleSelectPlace = useCallback((id: string) => {
     activatedByClick.current = true;
@@ -66,6 +85,15 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
     [patios, activeFilters]
   );
 
+  // Active filter labels in the order they appear in FILTERS (stable, predictable).
+  const activeFilterLabels = useMemo(
+    () =>
+      FILTERS
+        .filter((f) => activeFilters.has(f.key))
+        .map((f) => FILTER_BY_KEY[f.key].label),
+    [activeFilters]
+  );
+
   const counts = useMemo(() => {
     const out = {} as Record<FilterKey, number>;
     for (const f of FILTERS) {
@@ -82,27 +110,52 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
     />
   );
 
+  // FilterPills props are reused for the desktop sticky bar and the mobile
+  // in-list bar; rendered twice so each can have its own positioning.
+  const filterPillsEl = (
+    <FilterPills
+      active={activeFilters}
+      counts={counts}
+      totalCount={patios.length}
+      onToggle={toggleFilter}
+      onClear={clearFilters}
+    />
+  );
+
+  // Mobile-only filter bar — rendered as the sticky first child of the list
+  // panel so it pins right under the map when the user scrolls the cards.
+  // No padding/bg on the wrapper so cards scroll cleanly under the white
+  // FilterPills bar with no blue strip in between.
+  const mobileFilterBar = (
+    <div className="md:hidden sticky top-0 z-30 -mx-4">
+      {filterPillsEl}
+    </div>
+  );
+
   return (
     <UserLocationProvider>
       <div data-guide-anchor>
-        {/* Full-width filter pill bar (matches refresh01.png) */}
-        <div className="-mt-6 mb-3 relative z-20">
-          <FilterPills
-            active={activeFilters}
-            counts={counts}
-            totalCount={patios.length}
-            onToggle={toggleFilter}
-            onClear={clearFilters}
-          />
+        {/* Desktop-only sticky filter bar — pins at the top of the viewport
+            once the hero scrolls off. The wrapper has a tiny vertical breathing
+            margin (initial only — sticky behavior makes it collapse to top:0
+            when stuck), and no background so cards behind don't show through a
+            blue strip — the FilterPills capsule itself has a white bg.
+            On mobile the filters live inside the list panel (see
+            `mobileFilterBar` below). */}
+        <div className="hidden md:block sticky top-0 z-40 mt-3">
+          {filterPillsEl}
         </div>
 
         <SplitView
           patios={patios}
           tiers={tiers}
           totalCount={patios.length}
+          activeFilterLabels={activeFilterLabels}
           activePlaceId={activePlaceId}
           hoveredPlaceId={hoveredPlaceId}
           activatedByClick={activatedByClick.current}
+          mobileFilterBar={mobileFilterBar}
+          heroOffScreen={heroOffScreen}
           onSelectPlace={handleSelectPlace}
           onHoverPlace={setHoveredPlaceId}
           onTopVisibleChange={handleTopVisibleChange}

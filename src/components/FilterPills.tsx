@@ -98,13 +98,9 @@ export default function FilterPills({
   const anyActive = active.size > 0;
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4">
+    <div className="w-full md:max-w-7xl md:mx-auto md:px-4">
       <div
-        className="flex items-center overflow-x-auto scrollbar-hide bg-white rounded-full px-2 py-1.5"
-        style={{
-          boxShadow:
-            "0 6px 24px -8px rgba(28, 35, 52, 0.12), 0 2px 6px -2px rgba(28, 35, 52, 0.06)",
-        }}
+        className="flex items-center overflow-x-auto scrollbar-hide bg-white md:rounded-full px-2 py-1.5 md:shadow-[0_6px_24px_-8px_rgba(28,35,52,0.12),0_2px_6px_-2px_rgba(28,35,52,0.06)]"
       >
         {/* All Patios button — left-most, selected styling when no filters active */}
         <button

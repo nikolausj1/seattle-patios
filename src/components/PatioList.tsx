@@ -10,6 +10,8 @@ interface PatioListProps {
   tiers: PatioTier[];
   totalCount: number;
   patios: Patio[]; // flat list, used to register card refs in stable order
+  activeFilterLabels: string[];
+  heroOffScreen: boolean;
   activePlaceId: string | null;
   hoveredPlaceId: string | null;
   activatedByClick: boolean;
@@ -19,12 +21,22 @@ interface PatioListProps {
   onScrolled?: (isScrolled: boolean) => void;
   onListInteracted?: () => void;
   controls?: ReactNode;
+  mobileFilterBar?: ReactNode;
+}
+
+function joinNatural(items: string[]): string {
+  if (items.length === 0) return "";
+  if (items.length === 1) return items[0];
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return items.slice(0, -1).join(", ") + ", and " + items[items.length - 1];
 }
 
 export default function PatioList({
   tiers,
   totalCount,
   patios,
+  activeFilterLabels,
+  heroOffScreen,
   activePlaceId,
   hoveredPlaceId,
   activatedByClick,
@@ -34,6 +46,7 @@ export default function PatioList({
   onScrolled,
   onListInteracted,
   controls,
+  mobileFilterBar,
 }: PatioListProps) {
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const containerRef = useRef<HTMLDivElement>(null);
@@ -48,41 +61,15 @@ export default function PatioList({
     []
   );
 
-  // Desktop: forward wheel to page scroll when at top of list and hero still visible
+  // Mobile: collapse the expanded map back to its baseline when the user
+  // starts interacting with the list. Scroll-chaining handles hero exit
+  // natively now (the list's overflow is gated by `heroOffScreen`).
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
-
-    function handleWheel(e: WheelEvent) {
-      const atListTop = container!.scrollTop <= 0;
-      const scrollingUp = e.deltaY < 0;
-
-      if (scrollingUp && atListTop) {
-        e.preventDefault();
-        window.scrollBy({ top: e.deltaY });
-      } else {
-        hasUserScrolled.current = true;
-      }
-    }
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => container.removeEventListener("wheel", handleWheel);
-  }, []);
-
-  // Mobile: auto-snap hero away on touch
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    if (!container || !onListInteracted) return;
 
     function handleTouchStart() {
-      if (onListInteracted) onListInteracted();
-      const guide = document.querySelector("[data-guide-anchor]");
-      if (guide) {
-        const rect = guide.getBoundingClientRect();
-        if (rect.top > 1) {
-          guide.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
+      onListInteracted!();
     }
 
     container.addEventListener("touchstart", handleTouchStart, { passive: true });
@@ -150,7 +137,11 @@ export default function PatioList({
   return (
     <div
       ref={containerRef}
-      className="h-full overflow-y-auto p-4 space-y-4"
+      className={`h-full px-4 pb-4 md:pt-4 space-y-4 overflow-x-hidden ${
+        heroOffScreen
+          ? "overflow-y-auto"
+          : "overflow-y-hidden touch-pan-y"
+      }`}
       onScroll={(e) => {
         const wasFirstScroll = !hasUserScrolled.current;
         hasUserScrolled.current = true;
@@ -173,15 +164,37 @@ export default function PatioList({
         }
       }}
     >
-      {/* Filter pills + weather widget (passed in by parent) */}
+      {/* Mobile filter pill bar — sticky just below the map. Hidden on desktop;
+          desktop's filter bar lives at the top of the viewport instead. */}
+      {mobileFilterBar}
+
+      {/* Weather widget (passed in by parent) */}
       {controls && <div className="pt-4 mb-4 space-y-3">{controls}</div>}
 
       {/* Count */}
-      <p className="text-sm text-patio-slate mb-4">
-        {filtersActive
-          ? `${matchedCount} of ${totalCount} patios match`
-          : `${totalCount} patios`}
-      </p>
+      {filtersActive && matchedCount === 0 ? (
+        <div className="my-6 rounded-xl bg-patio-pill-bg/60 border border-dashed border-patio-sand/80 px-5 py-8 text-center">
+          <div className="text-3xl mb-2" aria-hidden>
+            🪑
+          </div>
+          <p className="text-base font-semibold text-patio-navy">
+            No patios match all of those filters.
+          </p>
+          <p className="text-sm text-patio-navy/65 mt-1">
+            Nothing is both{" "}
+            <span className="font-medium">
+              {joinNatural(activeFilterLabels.map((l) => l.toLowerCase()))}
+            </span>
+            . Try removing one to see closer matches below.
+          </p>
+        </div>
+      ) : (
+        <p className="text-sm text-patio-slate mb-4">
+          {filtersActive
+            ? `${matchedCount} ${matchedCount === 1 ? "patio that is" : "patios that are"} ${joinNatural(activeFilterLabels.map((l) => l.toLowerCase()))}`
+            : `${totalCount} patios`}
+        </p>
+      )}
 
       {/* Tiered patio cards */}
       <div className="space-y-4">
