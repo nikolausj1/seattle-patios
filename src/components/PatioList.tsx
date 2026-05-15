@@ -168,86 +168,100 @@ export default function PatioList({
           desktop's filter bar lives at the top of the viewport instead. */}
       {mobileFilterBar}
 
-      {/* Weather widget (passed in by parent) */}
-      {controls && <div className="pt-4 mb-4 space-y-3">{controls}</div>}
+      {/* Mobile-only spacer that creates the blue gap between the sticky filter
+          bar and the white list container below. Sticky filter (z-30) covers
+          this spacer once the user starts scrolling, so the gap only shows at
+          the very top of the list. Desktop has its own panel chrome — the
+          spacer collapses there. */}
+      <div className="h-3 md:hidden" />
 
-      {/* Count */}
-      {filtersActive && matchedCount === 0 ? (
-        <div className="my-6 rounded-xl bg-patio-pill-bg/60 border border-dashed border-patio-sand/80 px-5 py-8 text-center">
-          <div className="text-3xl mb-2" aria-hidden>
-            🪑
+      {/* White wrapper around the rest of the list content. On mobile this
+          gives us a single white "sheet" that scrolls up under the sticky
+          filter bar. On desktop the wrapper dissolves visually (no bg, no
+          rounded corners, no negative margin) since the list panel itself is
+          already a white card. */}
+      <div className="bg-white rounded-t-2xl -mx-4 px-4 pt-4 md:bg-transparent md:rounded-none md:mx-0 md:px-0 md:pt-0">
+        {/* Weather widget (passed in by parent) */}
+        {controls && <div className="mb-4 space-y-3">{controls}</div>}
+
+        {/* Count */}
+        {filtersActive && matchedCount === 0 ? (
+          <div className="my-6 rounded-xl bg-patio-pill-bg/60 border border-dashed border-patio-sand/80 px-5 py-8 text-center">
+            <div className="text-3xl mb-2" aria-hidden>
+              🪑
+            </div>
+            <p className="text-base font-semibold text-patio-navy">
+              No patios match all of those filters.
+            </p>
+            <p className="text-sm text-patio-navy/65 mt-1">
+              Nothing is both{" "}
+              <span className="font-medium">
+                {joinNatural(activeFilterLabels.map((l) => l.toLowerCase()))}
+              </span>
+              . Try removing one to see closer matches below.
+            </p>
           </div>
-          <p className="text-base font-semibold text-patio-navy">
-            No patios match all of those filters.
+        ) : (
+          <p className="text-sm text-patio-slate mb-4">
+            {filtersActive
+              ? `${matchedCount} ${matchedCount === 1 ? "patio that is" : "patios that are"} ${joinNatural(activeFilterLabels.map((l) => l.toLowerCase()))}`
+              : `${totalCount} patios`}
           </p>
-          <p className="text-sm text-patio-navy/65 mt-1">
-            Nothing is both{" "}
-            <span className="font-medium">
-              {joinNatural(activeFilterLabels.map((l) => l.toLowerCase()))}
-            </span>
-            . Try removing one to see closer matches below.
-          </p>
+        )}
+
+        {/* Tiered patio cards */}
+        <div className="space-y-4">
+          {tiers.map((tier, tierIdx) => (
+            <div key={`tier-${tier.matchCount}-${tier.total}`} className="space-y-4">
+              {/* Tier divider — only when filters are active and this isn't the first all-match tier */}
+              {tier.total > 0 && !(tierIdx === 0 && tier.matchCount === tier.total) && (
+                <div className="flex items-center gap-3 pt-2 pb-1">
+                  <div className="h-px flex-1 bg-patio-sand/60" />
+                  <span
+                    className={`text-[11px] uppercase tracking-wider font-semibold ${
+                      tier.matchCount === 0
+                        ? "text-patio-slate/50"
+                        : "text-patio-bark/70"
+                    }`}
+                  >
+                    {tierLabel(tier)}
+                  </span>
+                  <div className="h-px flex-1 bg-patio-sand/60" />
+                </div>
+              )}
+
+              {tier.patios.map((patio, patioIdx) => (
+                <PatioCard
+                  key={patio.id}
+                  ref={setCardRef(patio.id)}
+                  patio={patio}
+                  isTopRated={tierIdx === 0 && patioIdx === 0}
+                  isSelected={activePlaceId === patio.id}
+                  isHovered={hoveredPlaceId === patio.id}
+                  onSelect={onSelectPlace}
+                  onHover={onHoverPlace}
+                />
+              ))}
+            </div>
+          ))}
         </div>
-      ) : (
-        <p className="text-sm text-patio-slate mb-4">
-          {filtersActive
-            ? `${matchedCount} ${matchedCount === 1 ? "patio that is" : "patios that are"} ${joinNatural(activeFilterLabels.map((l) => l.toLowerCase()))}`
-            : `${totalCount} patios`}
-        </p>
-      )}
 
-      {/* Tiered patio cards */}
-      <div className="space-y-4">
-        {tiers.map((tier, tierIdx) => (
-          <div key={`tier-${tier.matchCount}-${tier.total}`} className="space-y-4">
-            {/* Tier divider — only when filters are active and this isn't the first all-match tier */}
-            {tier.total > 0 && !(tierIdx === 0 && tier.matchCount === tier.total) && (
-              <div className="flex items-center gap-3 pt-2 pb-1">
-                <div className="h-px flex-1 bg-patio-sand/60" />
-                <span
-                  className={`text-[11px] uppercase tracking-wider font-semibold ${
-                    tier.matchCount === 0
-                      ? "text-patio-slate/50"
-                      : "text-patio-bark/70"
-                  }`}
-                >
-                  {tierLabel(tier)}
-                </span>
-                <div className="h-px flex-1 bg-patio-sand/60" />
-              </div>
-            )}
+        {/* Add a Patio CTA — moved here from the header */}
+        <div className="pt-8 pb-4 text-center">
+          <p className="text-sm text-patio-slate/80 mb-2">
+            Don&rsquo;t see your favorite patio?
+          </p>
+          <a
+            href="mailto:hello@seattlepatiovibes.com?subject=Add%20a%20patio"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium text-patio-accent border border-patio-accent/40 hover:bg-patio-accent hover:text-white transition-colors"
+          >
+            Add a patio →
+          </a>
+        </div>
 
-            {tier.patios.map((patio, patioIdx) => (
-              <PatioCard
-                key={patio.id}
-                ref={setCardRef(patio.id)}
-                patio={patio}
-                isTopRated={tierIdx === 0 && patioIdx === 0}
-                isSelected={activePlaceId === patio.id}
-                isHovered={hoveredPlaceId === patio.id}
-                onSelect={onSelectPlace}
-                onHover={onHoverPlace}
-              />
-            ))}
-          </div>
-        ))}
+        {/* Bottom padding */}
+        <div className="pb-10" />
       </div>
-
-      {/* Add a Patio CTA — moved here from the header */}
-      <div className="pt-8 pb-4 text-center">
-        <p className="text-sm text-patio-slate/80 mb-2">
-          Don&rsquo;t see your favorite patio?
-        </p>
-        <a
-          href="mailto:hello@seattlepatiovibes.com?subject=Add%20a%20patio"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium text-patio-accent border border-patio-accent/40 hover:bg-patio-accent hover:text-white transition-colors"
-        >
-          Add a patio →
-        </a>
-      </div>
-
-      {/* Bottom padding */}
-      <div className="pb-10" />
     </div>
   );
 }
