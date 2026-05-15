@@ -52,7 +52,7 @@ export default function SplitView({
 
   return (
     <div className="md:max-w-7xl md:mx-auto md:px-4 md:mt-2">
-      <div className="flex flex-col md:flex-row md:gap-4 h-[100lvh] md:h-[calc(100dvh-52px)] overflow-hidden">
+      <div className="flex flex-col md:flex-row md:gap-4 h-dvh md:h-[calc(100dvh-52px)] overflow-hidden">
         {/* Map - top on mobile, right on desktop */}
         <div
           className={`shrink-0 ${mobileMapHeight} md:h-full md:flex-1 order-1 md:order-2 relative z-10 transition-[height] duration-300 ease-in-out patio-card overflow-hidden`}

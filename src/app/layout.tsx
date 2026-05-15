@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -13,15 +13,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  // Extend the page behind the iOS Safari status bar and URL bar so the
-  // map can sit flush at the top of the screen and the patio list bleeds
-  // off the bottom.
-  viewportFit: "cover",
-};
 
 export const metadata: Metadata = {
   title: "Seattle Patio Vibes — Seattle's Best Patios, Ranked",

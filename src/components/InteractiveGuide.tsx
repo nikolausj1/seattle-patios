@@ -48,45 +48,6 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
     return () => observer.disconnect();
   }, []);
 
-  // After the user stops scrolling, if the hero is sitting partially visible
-  // at the top of the viewport we finish the scroll for them so the map lands
-  // flush at the top — no hero peek left behind. Only fires on mobile (the
-  // desktop sticky filter handles the visual transition there).
-  const lastSnapAt = useRef(0);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(min-width: 768px)").matches) return;
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    const handle = () => {
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        if (Date.now() - lastSnapAt.current < 1500) return;
-        const hero = document.querySelector("[data-hero]");
-        if (!hero) return;
-        const heroH = (hero as HTMLElement).offsetHeight || 1;
-        const visibleBottom = hero.getBoundingClientRect().bottom;
-        // Visible range: 0 (just off) -> heroH (fully visible at top).
-        if (visibleBottom <= 0) return; // already fully off
-        if (visibleBottom >= heroH) return; // still at the very top
-        // Snap whichever direction is closer.
-        if (visibleBottom < heroH * 0.85) {
-          // More than 15% of the hero is off — finish the scroll.
-          lastSnapAt.current = Date.now();
-          window.scrollTo({
-            top: window.scrollY + visibleBottom,
-            behavior: "smooth",
-          });
-        }
-      }, 140);
-    };
-    window.addEventListener("scroll", handle, { passive: true });
-    window.addEventListener("touchend", handle, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handle);
-      window.removeEventListener("touchend", handle);
-      if (timeout) clearTimeout(timeout);
-    };
-  }, []);
 
   const handleSelectPlace = useCallback((id: string) => {
     activatedByClick.current = true;
