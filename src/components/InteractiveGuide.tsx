@@ -48,6 +48,29 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
     return () => observer.disconnect();
   }, []);
 
+  // When the hero first crosses the "almost off" threshold, finish the
+  // scroll programmatically so the map lands flush at the top of the
+  // viewport (no leftover hero peek). Gated by a cooldown so repeated
+  // scroll-up / scroll-down through the threshold doesn't fight the user.
+  const prevHeroOff = useRef(false);
+  const lastSnapAt = useRef(0);
+  useEffect(() => {
+    const wasOff = prevHeroOff.current;
+    prevHeroOff.current = heroOffScreen;
+    if (!heroOffScreen || wasOff) return;
+    if (Date.now() - lastSnapAt.current < 1500) return;
+    const hero = document.querySelector("[data-hero]");
+    if (!hero) return;
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom > 0 && heroBottom < 60) {
+      lastSnapAt.current = Date.now();
+      window.scrollTo({
+        top: window.scrollY + heroBottom,
+        behavior: "smooth",
+      });
+    }
+  }, [heroOffScreen]);
+
   const handleSelectPlace = useCallback((id: string) => {
     activatedByClick.current = true;
     setActivePlaceId(id);

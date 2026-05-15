@@ -69,10 +69,11 @@ body {
 
 /* Mobile only: snap the page so the user can't stop scrolling with the hero
  * half-visible at the top. Hero or guide-anchor get aligned to the scroll
- * container's start. Desktop keeps natural scrolling. */
+ * container's start. Mandatory ensures the snap happens on release no matter
+ * where the user's finger landed. Desktop keeps natural scrolling. */
 @media (max-width: 767px) {
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
   [data-hero],
   [data-guide-anchor] {
