@@ -51,7 +51,7 @@ export default function SplitView({
   const mobileMapHeight = isMapExpanded ? "h-[55vh]" : "h-[35vh]";
 
   return (
-    <div className="md:max-w-7xl md:mx-auto md:px-4 md:pb-8">
+    <div className="md:max-w-7xl md:mx-auto md:px-4 md:pb-4 md:mt-3">
       <div className="flex flex-col md:flex-row md:gap-4 h-dvh md:h-[calc(100dvh-72px)] overflow-hidden">
         {/* Map - top on mobile, right on desktop */}
         <div
