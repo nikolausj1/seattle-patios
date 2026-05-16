@@ -22,15 +22,14 @@ export default function HeroSection() {
         sizes="100vw"
         className="object-cover object-[68%_30%] md:object-[center_top] -z-10"
       />
-      {/* Mobile gradient overlay — keeps the upper half (where text sits)
-          legible against the photo by fading from a heavier light wash at the
-          top down to nearly transparent in the bottom half (where the photo
-          composition is strongest). */}
+      {/* Mobile gradient overlays — top half gets a heavier light wash so the
+          dark headline + score legend stay legible against the photo; bottom
+          gets a dark wash so the white "Scroll for Patios" chevron pops. */}
       <div
         className="absolute inset-0 -z-10 pointer-events-none md:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(221,238,245,0.85) 0%, rgba(221,238,245,0.78) 35%, rgba(221,238,245,0.55) 55%, rgba(221,238,245,0.15) 70%, rgba(221,238,245,0) 90%)",
+            "linear-gradient(180deg, rgba(221,238,245,0.94) 0%, rgba(221,238,245,0.88) 30%, rgba(221,238,245,0.62) 50%, rgba(221,238,245,0.10) 65%, rgba(221,238,245,0) 75%), linear-gradient(180deg, rgba(28,35,52,0) 70%, rgba(28,35,52,0.55) 100%)",
         }}
       />
       {/* Desktop gradient — light wash from the left so the headline reads
@@ -132,13 +131,17 @@ export default function HeroSection() {
           full-viewport hero on mobile. Collapses on desktop. */}
       <div className="md:hidden flex-1" />
 
-      {/* Bouncing scroll affordance — mobile only. */}
-      <div className="md:hidden relative z-10 pb-8 flex flex-col items-center text-patio-navy">
-        <span className="text-[11px] uppercase tracking-widest font-bold mb-2 drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]">
+      {/* Bouncing scroll affordance — mobile only. White text/icon sits on the
+          dark wash at the bottom of the hero for high contrast. */}
+      <div
+        className="md:hidden relative z-10 flex flex-col items-center text-white"
+        style={{ paddingBottom: "max(24px, env(safe-area-inset-bottom))" }}
+      >
+        <span className="text-[11px] uppercase tracking-widest font-bold mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
           Scroll for patios
         </span>
         <svg
-          className="w-6 h-6 animate-bounce drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]"
+          className="w-6 h-6 animate-bounce drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
