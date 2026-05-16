@@ -9,7 +9,10 @@ const pillars = [
 
 export default function HeroSection() {
   return (
-    <section data-hero className="relative isolate overflow-hidden min-h-screen md:min-h-0 flex flex-col md:block">
+    <section
+      data-hero
+      className="relative isolate overflow-hidden min-h-screen md:min-h-0 flex flex-col md:block"
+    >
       {/* Background photo — full bleed behind everything */}
       <Image
         src="/images/header.png"
@@ -17,11 +20,23 @@ export default function HeroSection() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[center_top] -z-10"
+        className="object-cover object-[68%_30%] md:object-[center_top] -z-10"
       />
-      {/* Subtle wash to soften the photo behind the headline text */}
+      {/* Mobile gradient overlay — keeps the upper half (where text sits)
+          legible against the photo by fading from a heavier light wash at the
+          top down to nearly transparent in the bottom half (where the photo
+          composition is strongest). */}
       <div
-        className="absolute inset-0 -z-10 pointer-events-none"
+        className="absolute inset-0 -z-10 pointer-events-none md:hidden"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(221,238,245,0.85) 0%, rgba(221,238,245,0.78) 35%, rgba(221,238,245,0.55) 55%, rgba(221,238,245,0.15) 70%, rgba(221,238,245,0) 90%)",
+        }}
+      />
+      {/* Desktop gradient — light wash from the left so the headline reads
+          while the photo stays vibrant on the right. */}
+      <div
+        className="absolute inset-0 -z-10 pointer-events-none hidden md:block"
         style={{
           background:
             "linear-gradient(90deg, rgba(221,238,245,0.55) 0%, rgba(221,238,245,0.30) 30%, rgba(221,238,245,0.05) 55%, rgba(221,238,245,0) 70%)",
@@ -35,7 +50,7 @@ export default function HeroSection() {
         width={813}
         height={789}
         priority
-        className="pointer-events-none absolute left-0 bottom-0 w-[180px] md:w-[260px] lg:w-[300px] -translate-x-[55%] translate-y-[8%] -z-[5] hidden sm:block"
+        className="pointer-events-none absolute left-0 bottom-0 w-[200px] sm:w-[220px] md:w-[260px] lg:w-[300px] -translate-x-[50%] translate-y-[6%] -z-[5]"
       />
 
       {/* Decorative cartoon sun — sits in the upper-right of the hero, behind the umbrella */}
@@ -58,7 +73,7 @@ export default function HeroSection() {
       </svg>
 
       {/* Top nav */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-5 flex items-center justify-between">
+      <div className="relative max-w-7xl mx-auto px-6 pt-5 flex items-center justify-between w-full">
         <div className="flex items-center gap-2">
           <span className="text-2xl leading-none" aria-hidden>
             ☀️
@@ -76,15 +91,17 @@ export default function HeroSection() {
         </a>
       </div>
 
-      {/* Hero body */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-10 pb-16 lg:pb-20">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight">
+      {/* Hero body — top-aligned on mobile so the headline and score legend sit
+          in the upper half (under the wash) while the photo's strong composition
+          (skyline, drinks, plant) carries the lower half. */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 pt-6 md:pt-10 pb-8 md:pb-16 lg:pb-20">
+        <div className="max-w-2xl w-full">
+          <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold leading-[1.02] tracking-tight">
             <span className="text-patio-navy">Find Seattle&rsquo;s Best</span>
             <br />
             <span className="text-patio-accent">Patio Vibes</span>
           </h1>
-          <p className="mt-4 text-base md:text-lg text-patio-navy/75 max-w-xl">
+          <p className="mt-4 text-lg md:text-lg text-patio-navy/80 max-w-xl">
             Seattle&rsquo;s best patios, ranked by sun, food, drinks, and vibe.
           </p>
 
@@ -97,7 +114,7 @@ export default function HeroSection() {
                   <div className="text-sm font-bold text-patio-navy leading-tight">
                     {p.name}
                   </div>
-                  <div className="text-[11px] text-patio-navy/65 leading-tight mt-0.5">
+                  <div className="text-[11px] text-patio-navy/70 leading-tight mt-0.5">
                     {p.blurb}
                   </div>
                 </div>
@@ -105,6 +122,31 @@ export default function HeroSection() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Spacer — pushes the bouncing chevron to the very bottom of the
+          full-viewport hero on mobile. Collapses on desktop. */}
+      <div className="md:hidden flex-1" />
+
+      {/* Bouncing scroll affordance — mobile only. */}
+      <div className="md:hidden relative z-10 pb-8 flex flex-col items-center text-patio-navy">
+        <span className="text-[11px] uppercase tracking-widest font-bold mb-2 drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]">
+          Scroll for patios
+        </span>
+        <svg
+          className="w-6 h-6 animate-bounce drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2.5}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
       </div>
     </section>
   );
