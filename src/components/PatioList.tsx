@@ -273,8 +273,10 @@ export default function PatioList({
           </a>
         </div>
 
-        {/* Bottom padding */}
-        <div className="pb-10" />
+        {/* Bottom padding — extends behind the iOS Safari URL bar / home
+            indicator via safe-area-inset-bottom so the white sheet bleeds
+            cleanly to the very edge of the screen. */}
+        <div style={{ height: "calc(env(safe-area-inset-bottom, 0px) + 40px)" }} />
       </div>
     </div>
   );

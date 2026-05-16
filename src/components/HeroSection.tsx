@@ -72,8 +72,12 @@ export default function HeroSection() {
         <circle cx="50" cy="50" r="20" fill="#F5C144" stroke="#F2742A" strokeWidth="3" />
       </svg>
 
-      {/* Top nav */}
-      <div className="relative max-w-7xl mx-auto px-6 pt-5 flex items-center justify-between w-full">
+      {/* Top nav — top padding accounts for the iOS safe-area inset so the
+          logo doesn't slip under the status bar / notch. */}
+      <div
+        className="relative max-w-7xl mx-auto px-6 flex items-center justify-between w-full"
+        style={{ paddingTop: "max(20px, env(safe-area-inset-top))" }}
+      >
         <div className="flex items-center gap-2">
           <span className="text-2xl leading-none" aria-hidden>
             ☀️
