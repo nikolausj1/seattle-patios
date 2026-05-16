@@ -11,7 +11,7 @@ export default function HeroSection() {
   return (
     <section
       data-hero
-      className="relative isolate overflow-hidden min-h-screen md:min-h-0 flex flex-col md:block"
+      className="relative isolate overflow-hidden min-h-[100svh] md:min-h-0 flex flex-col md:block"
     >
       {/* Background photo — full bleed behind everything */}
       <Image
@@ -135,13 +135,13 @@ export default function HeroSection() {
           dark wash at the bottom of the hero for high contrast. */}
       <div
         className="md:hidden relative z-10 flex flex-col items-center text-white"
-        style={{ paddingBottom: "max(24px, env(safe-area-inset-bottom))" }}
+        style={{ paddingBottom: "max(32px, env(safe-area-inset-bottom))" }}
       >
-        <span className="text-[11px] uppercase tracking-widest font-bold mb-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+        <span className="text-base uppercase tracking-[0.2em] font-extrabold mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
           Scroll for patios
         </span>
         <svg
-          className="w-6 h-6 animate-bounce drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
+          className="w-10 h-10 animate-bounce drop-shadow-[0_2px_4px_rgba(0,0,0,0.45)]"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

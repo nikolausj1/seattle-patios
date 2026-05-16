@@ -18,14 +18,14 @@ const inter = Inter({
 // - viewportFit=cover lets the page render under the status bar / URL bar
 //   instead of being inset into the safe area (so cards bleed off the bottom
 //   and the photo bleeds behind the top).
-// - themeColor sets the tint Safari uses for the chrome behind the URL bar /
-//   status bar so it matches the light-blue page background and doesn't show
-//   as a distracting blue strip.
+// - No themeColor: setting one tints the Safari URL bar with a solid color,
+//   which reads as an opaque strip rather than the translucent bar showing
+//   the cards behind it. Letting Safari default to its translucent chrome
+//   gives the see-through effect we want.
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#DDEEF5",
 };
 
 export const metadata: Metadata = {
