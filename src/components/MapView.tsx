@@ -22,7 +22,7 @@ interface MapViewProps {
 
 export default function MapView(props: MapViewProps) {
   return (
-    <div className="h-full w-full rounded-lg overflow-hidden">
+    <div className="h-full w-full rounded-b-lg md:rounded-lg overflow-hidden">
       <MapClient {...props} />
     </div>
   );
