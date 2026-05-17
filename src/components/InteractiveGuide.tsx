@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useMemo } from "react";
+import { useState, useCallback, useEffect, useRef, useMemo } from "react";
 import type { Patio } from "@/types";
 import type { FilterKey } from "@/utils/filters";
 import { FILTERS, FILTER_BY_KEY, getFilterOrder, groupIntoTiers } from "@/utils/filters";
@@ -21,6 +21,49 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
   );
 
   const activatedByClick = useRef(false);
+
+  // Programmatic scroll-end snap. Mobile-only. iOS Safari's natural finger
+  // swipes often leave the page at scrollY < hero height, so the bottom of
+  // the hero peeks above the map even after the user has clearly committed
+  // to the list view. After 220ms of no window-scroll, if the user is in the
+  // "in between" zone (well past 0, but not yet at hero end), snap them to
+  // whichever end they're closer to (with a bias toward snapping forward
+  // into the map/list view).
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    // Only on mobile — desktop layout has no hero-vs-split scroll issue.
+    if (window.matchMedia("(min-width: 768px)").matches) return;
+
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let snapping = false;
+
+    const onScroll = () => {
+      if (snapping) return;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        const hero = document.querySelector("section");
+        if (!hero) return;
+        const heroH = hero.offsetHeight;
+        const y = window.scrollY;
+        // Dead zones: <40px from top = let user stay on hero,
+        // >heroH-10px = already past hero (don't disturb).
+        if (y < 40 || y > heroH - 10) return;
+        // Bias toward forward snap — past 30% of hero, snap to SplitView.
+        const target = y > heroH * 0.3 ? heroH : 0;
+        snapping = true;
+        window.scrollTo({ top: target, behavior: "smooth" });
+        setTimeout(() => {
+          snapping = false;
+        }, 500);
+      }, 220);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
 
   // Current weather flags (current hour + next 2). Drives the filter chip
   // ordering: rainy → Covered to the front, cold → Heated to the front.
