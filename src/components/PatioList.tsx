@@ -11,7 +11,6 @@ interface PatioListProps {
   totalCount: number;
   patios: Patio[]; // flat list, used to register card refs in stable order
   activeFilterLabels: string[];
-  heroOffScreen: boolean;
   activePlaceId: string | null;
   hoveredPlaceId: string | null;
   activatedByClick: boolean;
@@ -36,7 +35,6 @@ export default function PatioList({
   totalCount,
   patios,
   activeFilterLabels,
-  heroOffScreen,
   activePlaceId,
   hoveredPlaceId,
   activatedByClick,
@@ -62,8 +60,7 @@ export default function PatioList({
   );
 
   // Mobile: collapse the expanded map back to its baseline when the user
-  // starts interacting with the list. Scroll-chaining handles hero exit
-  // natively now (the list's overflow is gated by `heroOffScreen`).
+  // starts interacting with the list.
   useEffect(() => {
     const container = containerRef.current;
     if (!container || !onListInteracted) return;
@@ -151,11 +148,7 @@ export default function PatioList({
   return (
     <div
       ref={containerRef}
-      className={`h-full px-4 md:pt-4 space-y-4 overflow-x-hidden ${
-        heroOffScreen
-          ? "overflow-y-auto"
-          : "overflow-y-hidden touch-pan-y"
-      }`}
+      className="h-full px-4 md:pt-4 space-y-4 overflow-x-hidden overflow-y-auto"
       onScroll={(e) => {
         const wasFirstScroll = !hasUserScrolled.current;
         hasUserScrolled.current = true;

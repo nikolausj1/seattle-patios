@@ -14,7 +14,6 @@ interface SplitViewProps {
   activePlaceId: string | null;
   hoveredPlaceId: string | null;
   activatedByClick: boolean;
-  heroOffScreen: boolean;
   onSelectPlace: (id: string) => void;
   onHoverPlace: (id: string | null) => void;
   onTopVisibleChange: (id: string | null) => void;
@@ -30,7 +29,6 @@ export default function SplitView({
   activePlaceId,
   hoveredPlaceId,
   activatedByClick,
-  heroOffScreen,
   onSelectPlace,
   onHoverPlace,
   onTopVisibleChange,
@@ -90,7 +88,6 @@ export default function SplitView({
             totalCount={totalCount}
             patios={patios}
             activeFilterLabels={activeFilterLabels}
-            heroOffScreen={heroOffScreen}
             mobileFilterBar={mobileFilterBar}
             activePlaceId={activePlaceId}
             hoveredPlaceId={hoveredPlaceId}

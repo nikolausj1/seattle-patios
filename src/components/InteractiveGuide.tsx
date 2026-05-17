@@ -22,32 +22,12 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
 
   const activatedByClick = useRef(false);
 
-  // Track whether the hero has scrolled off the viewport. The list's scroll
-  // overflow is only enabled once the hero is gone, so the first swipe on
-  // mobile pushes the hero off the page rather than scrolling the list.
-  const [heroOffScreen, setHeroOffScreen] = useState(false);
-
   // Current weather flags (current hour + next 2). Drives the filter chip
   // ordering: rainy → Covered to the front, cold → Heated to the front.
   const [weatherState, setWeatherState] = useState<{
     cold: boolean;
     rainy: boolean;
   }>({ cold: false, rainy: false });
-
-  useEffect(() => {
-    const hero = document.querySelector("[data-hero]");
-    if (!hero) return;
-    // Treat the hero as "off" when its visible ratio falls below 2% — this fires
-    // a hair before the hero is fully gone, so the list overflow is unlocked
-    // even if the page can't quite scroll the very last few pixels of hero away.
-    const observer = new IntersectionObserver(
-      ([entry]) => setHeroOffScreen(entry.intersectionRatio < 0.02),
-      { threshold: [0, 0.02, 1] }
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, []);
-
 
   const handleSelectPlace = useCallback((id: string) => {
     activatedByClick.current = true;
@@ -171,7 +151,6 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
           hoveredPlaceId={hoveredPlaceId}
           activatedByClick={activatedByClick.current}
           mobileFilterBar={mobileFilterBar}
-          heroOffScreen={heroOffScreen}
           onSelectPlace={handleSelectPlace}
           onHoverPlace={setHoveredPlaceId}
           onTopVisibleChange={handleTopVisibleChange}
