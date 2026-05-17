@@ -34,34 +34,65 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
     // Only on mobile — desktop layout has no hero-vs-split scroll issue.
     if (window.matchMedia("(min-width: 768px)").matches) return;
 
-    let timer: ReturnType<typeof setTimeout> | undefined;
     let snapping = false;
+    let pendingSnap: ReturnType<typeof setTimeout> | undefined;
+    let scrollDebounce: ReturnType<typeof setTimeout> | undefined;
 
-    const onScroll = () => {
+    const trySnap = () => {
       if (snapping) return;
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        const hero = document.querySelector("section");
-        if (!hero) return;
-        const heroH = hero.offsetHeight;
-        const y = window.scrollY;
-        // Dead zones: <40px from top = let user stay on hero,
-        // >heroH-10px = already past hero (don't disturb).
-        if (y < 40 || y > heroH - 10) return;
-        // Bias toward forward snap — past 30% of hero, snap to SplitView.
-        const target = y > heroH * 0.3 ? heroH : 0;
-        snapping = true;
-        window.scrollTo({ top: target, behavior: "smooth" });
-        setTimeout(() => {
-          snapping = false;
-        }, 500);
-      }, 220);
+      const hero = document.querySelector("section");
+      if (!hero) return;
+      const heroH = hero.offsetHeight;
+      const y = window.scrollY;
+      // Dead zones: <40px = let user stay on hero,
+      // >heroH-10px = already past hero (don't disturb).
+      if (y < 40 || y > heroH - 10) return;
+      // Forward bias: past 30% of hero, commit to SplitView view.
+      const target = y > heroH * 0.3 ? heroH : 0;
+      snapping = true;
+      window.scrollTo({ top: target, behavior: "smooth" });
+      setTimeout(() => {
+        snapping = false;
+      }, 600);
     };
 
+    // Poll until scrollY is stable for 2 consecutive 120ms ticks, then snap.
+    // Triggered both by touchend (iOS, after momentum settles) and a generic
+    // scroll-debounce fallback (desktop/programmatic scrolls).
+    const waitForStillThenSnap = () => {
+      if (pendingSnap) clearTimeout(pendingSnap);
+      let lastY = window.scrollY;
+      let stableTicks = 0;
+      const tick = () => {
+        const y = window.scrollY;
+        if (y === lastY) {
+          stableTicks++;
+          if (stableTicks >= 2) {
+            trySnap();
+            return;
+          }
+        } else {
+          stableTicks = 0;
+          lastY = y;
+        }
+        pendingSnap = setTimeout(tick, 120);
+      };
+      pendingSnap = setTimeout(tick, 120);
+    };
+
+    const onTouchEnd = () => waitForStillThenSnap();
+    const onScroll = () => {
+      if (scrollDebounce) clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(waitForStillThenSnap, 240);
+    };
+
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
+      window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("scroll", onScroll);
-      if (timer) clearTimeout(timer);
+      if (pendingSnap) clearTimeout(pendingSnap);
+      if (scrollDebounce) clearTimeout(scrollDebounce);
     };
   }, []);
 
