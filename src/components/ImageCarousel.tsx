@@ -85,6 +85,7 @@ export default function ImageCarousel({
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 560px"
+              unoptimized
             />
           </div>
         ))}

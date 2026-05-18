@@ -6,9 +6,9 @@
     "description": "Honestly one of the best outdoor spots in the city. You grab an Adirondack chair right on the gravel beach and stare straight across Lake Union with a glass of wine and a plate of oysters. There's a fire pit if it gets cool, and the whole vibe is like a casual beach bonfire that just happens to have exceptional food.",
     "comeHereFor": "Lakefront Adirondack chairs and raw bar on the beach",
     "images": [
-      "/patios/westward/01.jpg",
-      "/patios/westward/02.jpg",
-      "/images/places/westward-01.jpg"
+      "/patios/westward/01.webp",
+      "/patios/westward/02.webp",
+      "/images/places/westward-01.webp"
     ],
     "scores": {
       "sun": 91,
@@ -37,12 +37,12 @@
     "description": "The deck at Ray's is the quintessential Seattle summer experience. A sprawling second-floor balcony hanging right over Shilshole Bay with an unobstructed view of Puget Sound and the Olympics. On sunny evenings, the sunsets here are genuinely legendary. Servers will bring blankets when it cools down so you don't have to leave.",
     "comeHereFor": "Legendary waterfront sunsets over the Olympics",
     "images": [
-      "/images/places/rays-cafe-01.jpg",
-      "/images/places/rays-cafe-02.jpg",
-      "/images/places/rays-cafe-03.jpg",
-      "/images/places/rays-cafe-04.jpg",
-      "/images/places/rays-cafe-05.jpg",
-      "/images/places/rays-cafe-06.jpg"
+      "/images/places/rays-cafe-01.webp",
+      "/images/places/rays-cafe-02.webp",
+      "/images/places/rays-cafe-03.webp",
+      "/images/places/rays-cafe-04.webp",
+      "/images/places/rays-cafe-05.webp",
+      "/images/places/rays-cafe-06.webp"
     ],
     "scores": {
       "sun": 94,
@@ -71,8 +71,8 @@
     "description": "You check in downstairs and they take you up with a special key \u2014 which already sets the mood. The rooftop terrace opens up to a jaw-dropping panorama of Elliott Bay, the Great Wheel, and the Olympic Mountains. In summer the golden-hour light over the water is genuinely hard to beat. Fire pits, lush greenery, and cozy lounge seating.",
     "comeHereFor": "Unobstructed Elliott Bay sunset views above Pike Place",
     "images": [
-      "/patios/the-nest/01.jpg",
-      "/patios/the-nest/02.jpg"
+      "/patios/the-nest/01.webp",
+      "/patios/the-nest/02.webp"
     ],
     "scores": {
       "sun": 88,
@@ -101,12 +101,12 @@
     "description": "Little Water's patio is perched right on the eastern shore of Lake Union with a sweeping west-facing view toward Gas Works Park and the Olympics. The covered, heated setup means you can catch that afternoon glow even on cooler days. Margaritas in hand with that view is a combo that's hard to argue with.",
     "comeHereFor": "Lake Union views and margaritas on a heated lakeside patio",
     "images": [
-      "/images/places/little-water-cantina-01.jpg",
-      "/images/places/little-water-cantina-02.jpg",
-      "/images/places/little-water-cantina-03.jpg",
-      "/images/places/little-water-cantina-04.jpg",
-      "/images/places/little-water-cantina-05.jpg",
-      "/images/places/little-water-cantina-06.jpg"
+      "/images/places/little-water-cantina-01.webp",
+      "/images/places/little-water-cantina-02.webp",
+      "/images/places/little-water-cantina-03.webp",
+      "/images/places/little-water-cantina-04.webp",
+      "/images/places/little-water-cantina-05.webp",
+      "/images/places/little-water-cantina-06.webp"
     ],
     "scores": {
       "sun": 85,
@@ -135,14 +135,14 @@
     "description": "You order at the counter, grab a picnic table right on the waterfront, and look straight across at the full Seattle skyline \u2014 Space Needle included. The Hawaiian-Korean food is casual and really good, and the vibe on a sunny day is pure summer energy with people hanging out, dogs everywhere, and ferries passing by.",
     "comeHereFor": "The best skyline view in the city from a picnic table",
     "images": [
-      "/images/places/marination-ma-kai-01.jpg",
-      "/images/places/marination-ma-kai-02.jpg",
-      "/images/places/marination-ma-kai-03.jpg",
-      "/images/places/marination-ma-kai-04.jpg",
-      "/images/places/marination-ma-kai-05.jpg",
-      "/images/places/marination-ma-kai-06.jpg",
-      "/images/places/marination-ma-kai-07.jpg",
-      "/images/places/marination-ma-kai-08.jpg"
+      "/images/places/marination-ma-kai-01.webp",
+      "/images/places/marination-ma-kai-02.webp",
+      "/images/places/marination-ma-kai-03.webp",
+      "/images/places/marination-ma-kai-04.webp",
+      "/images/places/marination-ma-kai-05.webp",
+      "/images/places/marination-ma-kai-06.webp",
+      "/images/places/marination-ma-kai-07.webp",
+      "/images/places/marination-ma-kai-08.webp"
     ],
     "scores": {
       "sun": 91,
@@ -171,10 +171,10 @@
     "description": "This is the patio that made me want to build this site. Sitting right over Elliott Bay with the Olympic Mountains in the distance, Six Seven has one of the best sunset views in the city. The food is elevated Pacific Northwest, and the cocktails are strong.",
     "comeHereFor": "Sunset drinks right on the water",
     "images": [
-      "/images/places/six-seven-edgewater-01.jpg",
-      "/images/places/six-seven-edgewater-02.jpg",
-      "/images/places/six-seven-edgewater-03.jpg",
-      "/images/places/six-seven-edgewater-04.jpg"
+      "/images/places/six-seven-edgewater-01.webp",
+      "/images/places/six-seven-edgewater-02.webp",
+      "/images/places/six-seven-edgewater-03.webp",
+      "/images/places/six-seven-edgewater-04.webp"
     ],
     "scores": {
       "sun": 85,
@@ -203,8 +203,8 @@
     "description": "Salty's sits right on Alki Beach with a sweeping deck looking straight across Elliott Bay at the full downtown skyline \u2014 Space Needle, ferries, the works. The food is upscale Northwest seafood and the brunches are legendary. Glass railings keep the view unobstructed from almost every seat, and a partially tented section means the patio works in iffy weather too.",
     "comeHereFor": "Maybe the best skyline view in Seattle, period",
     "images": [
-      "/patios/saltys-on-alki/01.png",
-      "/patios/saltys-on-alki/02.png"
+      "/patios/saltys-on-alki/01.webp",
+      "/patios/saltys-on-alki/02.webp"
     ],
     "scores": {
       "sun": 79,
@@ -232,8 +232,8 @@
     "description": "A waterfront wine bar tucked into Chandler's Cove on South Lake Union. You can literally tie up a boat at their dock and walk in. The patio sits right on the water with views across the lake, and the wine list is all Northwest \u2014 Washington and Oregon selections with seasonally sourced food to match.",
     "comeHereFor": "Waterfront wine on the dock at Chandler's Cove",
     "images": [
-      "/patios/cove/01.jpg",
-      "/patios/cove/02.jpg"
+      "/patios/cove/01.webp",
+      "/patios/cove/02.webp"
     ],
     "scores": {
       "sun": 76,
@@ -262,8 +262,8 @@
     "description": "This is the hidden gem of the list. Tucked into a marina on Eastlake, the patio at White Swan feels like you've stumbled onto someone's private dock. Sailboats bobbing around you, solid food, and a vibe that feels genuinely off the beaten path.",
     "comeHereFor": "Hidden marina patio among the sailboats",
     "images": [
-      "/patios/white-swan/02.jpg",
-      "/patios/white-swan/01.jpg"
+      "/patios/white-swan/02.webp",
+      "/patios/white-swan/01.webp"
     ],
     "scores": {
       "sun": 76,
@@ -292,11 +292,11 @@
     "description": "Riding the elevator up to the 16th floor of the Graduate Hotel and stepping out onto this terrace is a genuinely wow moment \u2014 near-360 views of the Space Needle, Lake Union, Mount Rainier, and the Cascades. The campsite-chic vibe with old mountaineering gear, cozy couches, and s'mores kits feels fun and un-stuffy for a rooftop bar.",
     "comeHereFor": "360-degree Seattle panorama with s'mores and cocktails",
     "images": [
-      "/patios/mountaineering-club/01.jpg",
-      "/patios/mountaineering-club/02.jpg",
-      "/patios/mountaineering-club/03.jpg",
-      "/patios/mountaineering-club/04.jpg",
-      "/patios/mountaineering-club/05.jpg"
+      "/patios/mountaineering-club/01.webp",
+      "/patios/mountaineering-club/02.webp",
+      "/patios/mountaineering-club/03.webp",
+      "/patios/mountaineering-club/04.webp",
+      "/patios/mountaineering-club/05.webp"
     ],
     "scores": {
       "sun": 79,
@@ -325,8 +325,8 @@
     "description": "Right on the north shore of Lake Union, a stone's throw from Gas Works Park. The terraced dock-style patio drops down toward the water, packed on sunny afternoons with people drinking house beer while kayakers and paddleboarders cruise by. It's an open beer garden in the best sense \u2014 loose, communal, dog-friendly, with golden-hour light hitting the water just right.",
     "comeHereFor": "House beer on a terraced dock with paddleboarders and Lake Union views",
     "images": [
-      "/patios/gasworks-brewing/01.png",
-      "/patios/gasworks-brewing/02.png"
+      "/patios/gasworks-brewing/01.webp",
+      "/patios/gasworks-brewing/02.webp"
     ],
     "scores": {
       "sun": 91,
@@ -354,8 +354,8 @@
     "description": "A seasonal walk-up seafood shack on the south shore of Lake Union with a sprawling, sunny picnic-table patio right on the dock. You order at the window, grab a cold beer or ros\u00e9, and watch seaplanes land while polishing off cornmeal-crusted fish and chips. It's casual, family-friendly, and one of the most genuinely fun summer spots in the city \u2014 only open May through September.",
     "comeHereFor": "Seasonal walk-up seafood with picnic tables on Lake Union",
     "images": [
-      "/patios/100-pound-clam/01.jpg",
-      "/patios/100-pound-clam/02.jpg"
+      "/patios/100-pound-clam/01.webp",
+      "/patios/100-pound-clam/02.webp"
     ],
     "scores": {
       "sun": 85,
@@ -384,8 +384,8 @@
     "description": "A small but stunning waterfront patio on Shilshole Bay where they pour Cajun seafood boils straight onto the table. Pick your seafood, sauce, and spice level, then dig in with the Olympic Mountains in the distance and tugboats drifting past. The patio is intimate \u2014 only a handful of tables \u2014 but the west-facing view is hard to beat.",
     "comeHereFor": "Cajun seafood boils on a small Shilshole Bay patio",
     "images": [
-      "/patios/happy-crab/01.png",
-      "/patios/happy-crab/02.png"
+      "/patios/happy-crab/01.webp",
+      "/patios/happy-crab/02.webp"
     ],
     "scores": {
       "sun": 85,
@@ -413,9 +413,9 @@
     "description": "A genuinely hidden waterfront spot on the east end of Lake Union \u2014 you can pull up by boat or walk in from Northlake Way. The dockside patio looks straight across the water at the downtown skyline, with string lights and fire pits keeping it going past sunset. Casual grill food, dog-friendly, and the kind of unpretentious vibe that makes you want to linger for one more round.",
     "comeHereFor": "Dockside drinks and skyline sunsets on Lake Union",
     "images": [
-      "/patios/bowriders-grill/01.png",
-      "/patios/bowriders-grill/02.png",
-      "/patios/bowriders-grill/03.png"
+      "/patios/bowriders-grill/01.webp",
+      "/patios/bowriders-grill/02.webp",
+      "/patios/bowriders-grill/03.webp"
     ],
     "scores": {
       "sun": 82,
@@ -443,10 +443,10 @@
     "description": "A Seattle institution with a massive waterfront deck on Lake Union. You're watching seaplanes take off and sailboats cruise by while eating some of the freshest salmon in the city. The patio is huge and unobstructed \u2014 one of the best spots to soak up a summer afternoon.",
     "comeHereFor": "Waterfront deck with seaplane views",
     "images": [
-      "/patios/ivars-south-lake-union/02.png",
-      "/patios/ivars-south-lake-union/03.png",
-      "/patios/ivars-south-lake-union/04.png",
-      "/patios/ivars-south-lake-union/01.jpg"
+      "/patios/ivars-south-lake-union/02.webp",
+      "/patios/ivars-south-lake-union/03.webp",
+      "/patios/ivars-south-lake-union/04.webp",
+      "/patios/ivars-south-lake-union/01.webp"
     ],
     "scores": {
       "sun": 79,
@@ -475,9 +475,9 @@
     "description": "Tucked into Elliott Bay Marina under the Magnolia Bluff, Maggie Bluffs feels like a hidden marina hangout \u2014 sailboats and yachts on one side, the bluff rising up behind, and red umbrellas everywhere. Casual American grill food and a friendly, salty crowd. Easy to spend a sunny afternoon here losing track of time.",
     "comeHereFor": "Marina patio under Magnolia Bluff with sailboat views",
     "images": [
-      "/patios/maggie-bluffs/01.png",
-      "/patios/maggie-bluffs/02.png",
-      "/patios/maggie-bluffs/03.png"
+      "/patios/maggie-bluffs/01.webp",
+      "/patios/maggie-bluffs/02.webp",
+      "/patios/maggie-bluffs/03.webp"
     ],
     "scores": {
       "sun": 85,
@@ -505,8 +505,8 @@
     "description": "A two-level patio bar on Greenwood Ave with the loose, friendly energy of a great neighborhood spot. The lower deck is astroturf with picnic tables, fire pits, and dogs everywhere; the upper deck has white umbrellas, string lights, and a slightly more grown-up cocktail-and-slushie vibe. Heaters and a covered upper level mean it works year-round.",
     "comeHereFor": "Two-level neighborhood patio with slushies, fire pits, and dogs",
     "images": [
-      "/patios/phinney-station/01.jpg",
-      "/patios/phinney-station/02.jpg"
+      "/patios/phinney-station/01.webp",
+      "/patios/phinney-station/02.webp"
     ],
     "scores": {
       "sun": 79,
@@ -535,7 +535,7 @@
     "description": "One of the coolest outdoor spaces in the city \u2014 a sprawling astroturf beer garden with fire pits, yard games, a separate outdoor bar, and the Space Needle literally looming over you. Dog-friendly and 21+ in the campfire garden, which gives it a fun, loose neighborhood bar energy.",
     "comeHereFor": "Fire pit drinks under the Space Needle with yard games",
     "images": [
-      "/patios/citizen-collective/01.jpg"
+      "/patios/citizen-collective/01.webp"
     ],
     "scores": {
       "sun": 67,
@@ -564,8 +564,8 @@
     "description": "Tucked behind Mischief Distillery on the Fremont canal, The Fremont Social pairs an intimate string-lit courtyard with a glass-walled rooftop bar overhead. The cocktails are excellent (it's a distillery, after all), the food leans New American with raw bar standouts, and the whole space has the unhurried, evening-into-night vibe you want when the weather cooperates.",
     "comeHereFor": "Distillery cocktails on a string-lit courtyard with a rooftop above",
     "images": [
-      "/patios/fremont-social/01.jpg",
-      "/patios/fremont-social/02.jpg"
+      "/patios/fremont-social/01.webp",
+      "/patios/fremont-social/02.webp"
     ],
     "scores": {
       "sun": 67,
@@ -594,8 +594,8 @@
     "description": "Bongos brings full Caribbean energy to Green Lake. The outdoor patio is colorful, open-air, and gets absolutely drenched in sun all day. If you want jerk chicken, rum drinks, and a laid-back island vibe in the middle of Seattle, this is your spot.",
     "comeHereFor": "Caribbean vibes and full sun all day",
     "images": [
-      "/patios/bongos/02.jpg",
-      "/patios/bongos/01.jpg"
+      "/patios/bongos/02.webp",
+      "/patios/bongos/01.webp"
     ],
     "scores": {
       "sun": 82,
@@ -624,11 +624,11 @@
     "description": "Fremont Brewing's Urban Beer Garden is exactly what the name promises \u2014 a sprawling outdoor space with picnic tables, string lights, and board games tucked into the heart of Fremont. Covered and heated so you can nurse a pint even on a drizzly afternoon. Dog-and-kid-friendly with zero pretension.",
     "comeHereFor": "Craft beer in a dog-friendly all-weather beer garden",
     "images": [
-      "/patios/fremont-brewing/01.jpg",
-      "/patios/fremont-brewing/02.jpg",
-      "/patios/fremont-brewing/03.jpg",
-      "/patios/fremont-brewing/04.jpg",
-      "/patios/fremont-brewing/05.jpg"
+      "/patios/fremont-brewing/01.webp",
+      "/patios/fremont-brewing/02.webp",
+      "/patios/fremont-brewing/03.webp",
+      "/patios/fremont-brewing/04.webp",
+      "/patios/fremont-brewing/05.webp"
     ],
     "scores": {
       "sun": 67,
@@ -657,8 +657,8 @@
     "description": "A rooftop herb garden on Capitol Hill with some of the most thoughtful farm-to-table food in the neighborhood. The patio is intimate and green \u2014 you're eating surrounded by the ingredients they're cooking with. The cocktails are seasonal and always interesting.",
     "comeHereFor": "Rooftop herb garden with farm-to-table food",
     "images": [
-      "/patios/terra-plata/02.jpg",
-      "/patios/terra-plata/01.jpg"
+      "/patios/terra-plata/02.webp",
+      "/patios/terra-plata/01.webp"
     ],
     "scores": {
       "sun": 61,
@@ -687,8 +687,8 @@
     "description": "Frolik's 4,000 sq ft rooftop is one of the largest outdoor spaces in downtown Seattle. Fire pit bar tables, lounge furniture, ping-pong, giant Jenga, and shuffleboard, all with downtown skyline views. Heated and partially tented year-round, and in winter they bring out curling and igloos.",
     "comeHereFor": "Year-round rooftop games and cocktails above downtown",
     "images": [
-      "/patios/frolik/02.jpg",
-      "/patios/frolik/01.jpg"
+      "/patios/frolik/02.webp",
+      "/patios/frolik/01.webp"
     ],
     "scores": {
       "sun": 61,
@@ -717,13 +717,13 @@
     "description": "Old Stove sits right below Pike Place Market with a sprawling deck overlooking Elliott Bay. Great beer, decent bar food, and one of the most prime patio locations in the city. It gets packed on sunny days for good reason.",
     "comeHereFor": "Beer on the deck overlooking Elliott Bay",
     "images": [
-      "/patios/old-stove/01.jpg",
-      "/patios/old-stove/02.jpg",
-      "/patios/old-stove/03.png",
-      "/patios/old-stove/04.png",
-      "/patios/old-stove/05.png",
-      "/patios/old-stove/06.png",
-      "/patios/old-stove/07.png"
+      "/patios/old-stove/01.webp",
+      "/patios/old-stove/02.webp",
+      "/patios/old-stove/03.webp",
+      "/patios/old-stove/04.webp",
+      "/patios/old-stove/05.webp",
+      "/patios/old-stove/06.webp",
+      "/patios/old-stove/07.webp"
     ],
     "scores": {
       "sun": 70,
@@ -752,12 +752,12 @@
     "description": "Duke's has been a Seattle staple for years. The South Lake Union location has a big waterfront deck right on Lake Union. Solid seafood, good happy hour, and the kind of reliable patio experience where you know what you're getting \u2014 and it's always good.",
     "comeHereFor": "Reliable waterfront seafood on Lake Union",
     "images": [
-      "/patios/dukes/01.jpg",
-      "/images/places/dukes-01.jpg",
-      "/images/places/dukes-02.jpg",
-      "/images/places/dukes-03.jpg",
-      "/images/places/dukes-04.jpg",
-      "/images/places/dukes-05.jpg"
+      "/patios/dukes/01.webp",
+      "/images/places/dukes-01.webp",
+      "/images/places/dukes-02.webp",
+      "/images/places/dukes-03.webp",
+      "/images/places/dukes-04.webp",
+      "/images/places/dukes-05.webp"
     ],
     "scores": {
       "sun": 73,
@@ -786,12 +786,12 @@
     "description": "Situ's courtyard patio in Wallingford is a neighborhood favorite. Great tacos, creative cocktails, and a space that feels casual enough for a Tuesday night but fun enough for a Saturday. The patio catches good afternoon sun and has a relaxed, local energy.",
     "comeHereFor": "Tacos and cocktails in a sunny courtyard",
     "images": [
-      "/patios/situ/01.jpg",
-      "/images/places/situ-taco-01.jpg",
-      "/images/places/situ-taco-02.jpg",
-      "/images/places/situ-taco-03.jpg",
-      "/images/places/situ-taco-04.jpg",
-      "/images/places/situ-taco-05.jpg"
+      "/patios/situ/01.webp",
+      "/images/places/situ-taco-01.webp",
+      "/images/places/situ-taco-02.webp",
+      "/images/places/situ-taco-03.webp",
+      "/images/places/situ-taco-04.webp",
+      "/images/places/situ-taco-05.webp"
     ],
     "scores": {
       "sun": 70,
@@ -820,8 +820,8 @@
     "description": "A proper beer garden tucked inside Magnuson Park. This is the spot for a lazy weekend afternoon \u2014 grab a beer, spread out on the open patio, and let the kids run around. The sun exposure is incredible and the park setting makes it feel like a mini-vacation.",
     "comeHereFor": "Beer garden vibes in the park with full sun",
     "images": [
-      "/patios/magnuson-cafe/01.jpg",
-      "/patios/magnuson-cafe/02.jpg"
+      "/patios/magnuson-cafe/01.webp",
+      "/patios/magnuson-cafe/02.webp"
     ],
     "scores": {
       "sun": 82,
@@ -850,8 +850,8 @@
     "description": "A big, bustling streetside patio in the heart of SLU. Local Public Eatery nails the casual sports bar vibe with better-than-expected food. The patio is fully covered and heated, so it's a reliable option even on those iffy Seattle days.",
     "comeHereFor": "Covered streetside patio that works rain or shine",
     "images": [
-      "/patios/local-public-eatery/01.jpg",
-      "/patios/local-public-eatery/02.jpg"
+      "/patios/local-public-eatery/01.webp",
+      "/patios/local-public-eatery/02.webp"
     ],
     "scores": {
       "sun": 61,
@@ -880,10 +880,10 @@
     "description": "Monsoon's rooftop is a small, intimate perch above Capitol Hill. The Vietnamese food here is some of the best in Seattle \u2014 refined and full of flavor. The patio is compact but the combination of excellent food and a unique rooftop setting makes it special.",
     "comeHereFor": "Exceptional Vietnamese food on a rooftop",
     "images": [
-      "/patios/monsoon-rooftop/01.jpg",
-      "/patios/monsoon-rooftop/02.jpg",
-      "/patios/monsoon-rooftop/03.jpg",
-      "/patios/monsoon-rooftop/04.jpg"
+      "/patios/monsoon-rooftop/01.webp",
+      "/patios/monsoon-rooftop/02.webp",
+      "/patios/monsoon-rooftop/03.webp",
+      "/patios/monsoon-rooftop/04.webp"
     ],
     "scores": {
       "sun": 48,
@@ -911,7 +911,7 @@
     "neighborhood": "University District",
     "description": "",
     "images": [
-      "/patios/aqua-verde/01.jpg"
+      "/patios/aqua-verde/01.webp"
     ],
     "scores": {
       "sun": 0,
@@ -937,7 +937,7 @@
     "neighborhood": "Ballard",
     "description": "",
     "images": [
-      "/patios/fish-ladder/01.jpg"
+      "/patios/fish-ladder/01.webp"
     ],
     "scores": {
       "sun": 0,
@@ -963,7 +963,7 @@
     "neighborhood": "Downtown",
     "description": "",
     "images": [
-      "/patios/next-level-lounge/01.jpg"
+      "/patios/next-level-lounge/01.webp"
     ],
     "scores": {
       "sun": 0,
