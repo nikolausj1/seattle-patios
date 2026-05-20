@@ -59,23 +59,6 @@ export default function SplitView({
   return (
     <div data-splitview className="md:max-w-7xl md:mx-auto md:px-4 md:mt-2">
       <div className="relative flex flex-col md:flex-row md:gap-4 h-[100dvh] md:h-[calc(100dvh-52px)]">
-        {/* Sky band that sits behind iOS Safari's translucent URL bar so
-            the bar's sides read sky color (eBay-style see-through) instead
-            of white. The URL bar pill itself sits ~16–24pt above the
-            safe-area, so the band has to be tall enough to actually cover
-            it — safe-area inset alone is only ~34pt and sits below the pill.
-            Gradient fades to transparent at the top so cards scrolling
-            past it aren't abruptly clipped. Mobile only. */}
-        <div
-          className="md:hidden pointer-events-none absolute inset-x-0 bottom-0 z-20"
-          style={{
-            height: "calc(env(safe-area-inset-bottom, 0px) + 56px)",
-            background:
-              "linear-gradient(to top, var(--color-patio-sky) 0%, var(--color-patio-sky) 55%, rgba(221,238,245,0) 100%)",
-          }}
-          aria-hidden
-        />
-
         {/* Map - top on mobile, right on desktop. On mobile, the negative
             top margin (= -safe-area-inset-top) pulls the map up so it extends
             edge-to-edge into the safe-area region behind the iOS status bar;
