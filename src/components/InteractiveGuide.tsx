@@ -22,77 +22,89 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
 
   const activatedByClick = useRef(false);
 
-  // Programmatic scroll-end snap. Mobile-only. iOS Safari's natural finger
-  // swipes often leave the page at scrollY < hero height, so the bottom of
-  // the hero peeks above the map even after the user has clearly committed
-  // to the list view. After 220ms of no window-scroll, if the user is in the
-  // "in between" zone (well past 0, but not yet at hero end), snap them to
-  // whichever end they're closer to (with a bias toward snapping forward
-  // into the map/list view).
+  // Scroll-end snap (mobile only). iOS Safari finger swipes routinely stop
+  // a little short of fully scrolling the hero off, leaving a sliver of the
+  // hero peeking behind the translucent status bar above the map.
+  //
+  // Trigger: the native `scrollend` event, which fires exactly once when iOS
+  // has finished ALL scrolling — momentum AND the URL-bar collapse animation.
+  // (The previous implementation polled for scroll-stability, but the URL-bar
+  // animation keeps emitting `scroll` events, so the poll never settled and
+  // the snap never ran.) `touchend` + a short settle-poll is kept as a
+  // fallback for engines without `scrollend`.
+  //
+  // Target: measured live from the SplitView's getBoundingClientRect — no
+  // dependence on a computed hero height that can drift as dvh changes.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Only on mobile — desktop layout has no hero-vs-split scroll issue.
     if (window.matchMedia("(min-width: 768px)").matches) return;
 
     let snapping = false;
-    let pendingSnap: ReturnType<typeof setTimeout> | undefined;
-    let scrollDebounce: ReturnType<typeof setTimeout> | undefined;
+    let snapCooldown: ReturnType<typeof setTimeout> | undefined;
 
-    const trySnap = () => {
+    const snapDecision = () => {
       if (snapping) return;
-      const hero = document.querySelector("section");
-      if (!hero) return;
-      const heroH = hero.offsetHeight;
-      const y = window.scrollY;
-      // Dead zones: <40px = let user stay on hero,
-      // >heroH-10px = already past hero (don't disturb).
-      if (y < 40 || y > heroH - 10) return;
-      // Forward bias: past 30% of hero, commit to SplitView view.
-      const target = y > heroH * 0.3 ? heroH : 0;
+      const split = document.querySelector("[data-splitview]");
+      const hero = document.querySelector("[data-hero]");
+      if (!split || !hero) return;
+      const heroH = (hero as HTMLElement).offsetHeight;
+      // splitTop = distance from the viewport top to the SplitView's top edge.
+      //   > 0  → SplitView is below the fold; the hero occupies the top
+      //          `splitTop` px of the viewport (this is the peek).
+      //   <= 0 → SplitView already owns the viewport top — no peek.
+      const splitTop = split.getBoundingClientRect().top;
+      if (splitTop <= 0 || splitTop >= heroH) return; // already a clean state
+
+      // In between: snap to the nearer end. Forward bias — once the user is
+      // more than ~45% into the hero, commit them to the map/list view.
+      const forward = splitTop < heroH * 0.55;
+      const delta = forward ? splitTop : splitTop - heroH; // px to scroll by
+      if (Math.abs(delta) < 2) return;
+
       snapping = true;
-      window.scrollTo({ top: target, behavior: "smooth" });
-      setTimeout(() => {
+      window.scrollBy({ top: delta, behavior: "smooth" });
+      if (snapCooldown) clearTimeout(snapCooldown);
+      snapCooldown = setTimeout(() => {
         snapping = false;
-      }, 600);
+      }, 700);
     };
 
-    // Poll until scrollY is stable for 2 consecutive 120ms ticks, then snap.
-    // Triggered both by touchend (iOS, after momentum settles) and a generic
-    // scroll-debounce fallback (desktop/programmatic scrolls).
-    const waitForStillThenSnap = () => {
-      if (pendingSnap) clearTimeout(pendingSnap);
+    const supportsScrollEnd = "onscrollend" in window;
+    if (supportsScrollEnd) {
+      window.addEventListener("scrollend", snapDecision, { passive: true });
+    }
+
+    // touchend fallback: after the finger lifts, momentum may continue, so
+    // poll until scrollY has been still for two 130ms ticks, then decide.
+    let settleTimer: ReturnType<typeof setTimeout> | undefined;
+    const onTouchEnd = () => {
+      if (settleTimer) clearTimeout(settleTimer);
       let lastY = window.scrollY;
-      let stableTicks = 0;
-      const tick = () => {
+      let still = 0;
+      const poll = () => {
         const y = window.scrollY;
         if (y === lastY) {
-          stableTicks++;
-          if (stableTicks >= 2) {
-            trySnap();
+          if (++still >= 2) {
+            snapDecision();
             return;
           }
         } else {
-          stableTicks = 0;
+          still = 0;
           lastY = y;
         }
-        pendingSnap = setTimeout(tick, 120);
+        settleTimer = setTimeout(poll, 130);
       };
-      pendingSnap = setTimeout(tick, 120);
+      settleTimer = setTimeout(poll, 130);
     };
-
-    const onTouchEnd = () => waitForStillThenSnap();
-    const onScroll = () => {
-      if (scrollDebounce) clearTimeout(scrollDebounce);
-      scrollDebounce = setTimeout(waitForStillThenSnap, 240);
-    };
-
     window.addEventListener("touchend", onTouchEnd, { passive: true });
-    window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => {
+      if (supportsScrollEnd) {
+        window.removeEventListener("scrollend", snapDecision);
+      }
       window.removeEventListener("touchend", onTouchEnd);
-      window.removeEventListener("scroll", onScroll);
-      if (pendingSnap) clearTimeout(pendingSnap);
-      if (scrollDebounce) clearTimeout(scrollDebounce);
+      if (settleTimer) clearTimeout(settleTimer);
+      if (snapCooldown) clearTimeout(snapCooldown);
     };
   }, []);
 
