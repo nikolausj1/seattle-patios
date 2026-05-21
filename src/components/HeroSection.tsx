@@ -9,7 +9,10 @@ const pillars = [
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden min-h-[100svh] md:min-h-0 flex flex-col md:block">
+    <section
+      data-hero
+      className="relative isolate overflow-hidden flex flex-col md:block"
+    >
       {/* Background photo — full bleed behind everything */}
       <Image
         src="/images/header.png"
@@ -124,21 +127,15 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Spacer — pushes the bouncing chevron to the very bottom of the
-          full-viewport hero on mobile. Collapses on desktop. */}
-      <div className="md:hidden flex-1" />
-
-      {/* Bouncing scroll affordance — mobile only. White text/icon sits on the
-          dark wash at the bottom of the hero for high contrast. */}
+      {/* Bouncing scroll affordance — mobile only. */}
       <div
-        className="md:hidden relative z-10 flex flex-col items-center text-white"
-        style={{ paddingBottom: "max(32px, env(safe-area-inset-bottom))" }}
+        className="md:hidden relative z-10 flex flex-col items-center text-patio-navy/70 pb-8"
       >
-        <span className="text-base uppercase tracking-[0.2em] font-extrabold mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]">
+        <span className="text-sm uppercase tracking-[0.2em] font-extrabold mb-2">
           Scroll for patios
         </span>
         <svg
-          className="w-10 h-10 animate-bounce drop-shadow-[0_2px_4px_rgba(0,0,0,0.45)]"
+          className="w-8 h-8 animate-bounce"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

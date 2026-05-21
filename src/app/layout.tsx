@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,12 +14,14 @@ const inter = Inter({
   display: "swap",
 });
 
-// No `viewport` export — Next.js defaults to
-// `width=device-width, initial-scale=1`. We deliberately do NOT set
-// `viewportFit: "cover"`: with cover, page content renders *behind* the
-// iOS status bar, which let the hero "peek" behind it after scrolling.
-// Without it, iOS insets the content below the status bar and the peek
-// is structurally impossible — matching the Seattle Visitor Guide.
+// viewportFit=cover lets the map render edge-to-edge behind the iOS
+// status bar (the user wants the map under the time/battery icons).
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "Seattle Patio Vibes — Seattle's Best Patios, Ranked",
   description:

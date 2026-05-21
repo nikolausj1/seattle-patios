@@ -11,6 +11,7 @@ interface PatioListProps {
   totalCount: number;
   patios: Patio[]; // flat list, used to register card refs in stable order
   activeFilterLabels: string[];
+  heroOffScreen: boolean;
   activePlaceId: string | null;
   hoveredPlaceId: string | null;
   activatedByClick: boolean;
@@ -35,6 +36,7 @@ export default function PatioList({
   totalCount,
   patios,
   activeFilterLabels,
+  heroOffScreen,
   activePlaceId,
   hoveredPlaceId,
   activatedByClick,
@@ -148,7 +150,14 @@ export default function PatioList({
   return (
     <div
       ref={containerRef}
-      className="h-full px-4 md:pt-4 space-y-4 overflow-x-hidden overflow-y-auto"
+      // Hero gate: until the hero is scrolled off, the list is NOT its own
+      // scroll container (overflow-y-hidden) — so a touch-drag here bubbles
+      // up to the page and moves the hero off instead. Once the hero is
+      // gone, overflow-y-auto makes the list scroll internally. Desktop
+      // (md+) always scrolls — there is no hero gate there.
+      className={`h-full px-4 md:pt-4 space-y-4 overflow-x-hidden md:overflow-y-auto ${
+        heroOffScreen ? "overflow-y-auto" : "overflow-y-hidden"
+      }`}
       onScroll={(e) => {
         const wasFirstScroll = !hasUserScrolled.current;
         hasUserScrolled.current = true;

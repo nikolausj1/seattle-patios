@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useMemo } from "react";
+import { useState, useCallback, useEffect, useRef, useMemo } from "react";
 import type { Patio } from "@/types";
 import type { FilterKey } from "@/utils/filters";
 import { FILTERS, FILTER_BY_KEY, getFilterOrder, groupIntoTiers } from "@/utils/filters";
@@ -21,6 +21,34 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
   );
 
   const activatedByClick = useRef(false);
+
+  // Hero gate (mobile). The patio list / map should NOT scroll internally
+  // until the hero has been scrolled off the viewport — the first touch
+  // gestures must move the hero off the page, then the list becomes
+  // interactive. `heroOffScreen` drives the list's overflow in PatioList.
+  //
+  // Hysteresis avoids the flip-flop that broke an earlier version of this
+  // gate: flip to `true` only when the hero is ≤2% visible (fully gone),
+  // back to `false` only when it is ≥98% visible (scrolled back to top).
+  // In between, the value is held — so iOS URL-bar jitter while the user
+  // is in the list can't spuriously re-lock it.
+  const [heroOffScreen, setHeroOffScreen] = useState(false);
+
+  useEffect(() => {
+    const hero = document.querySelector("[data-hero]");
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const r = entry.intersectionRatio;
+        if (r <= 0.02) setHeroOffScreen(true);
+        else if (r >= 0.98) setHeroOffScreen(false);
+        // else: hold current value (hysteresis band)
+      },
+      { threshold: [0, 0.02, 0.98, 1] }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   // Current weather flags (current hour + next 2). Drives the filter chip
   // ordering: rainy → Covered to the front, cold → Heated to the front.
@@ -150,6 +178,7 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
           activePlaceId={activePlaceId}
           hoveredPlaceId={hoveredPlaceId}
           activatedByClick={activatedByClick.current}
+          heroOffScreen={heroOffScreen}
           mobileFilterBar={mobileFilterBar}
           onSelectPlace={handleSelectPlace}
           onHoverPlace={setHoveredPlaceId}
