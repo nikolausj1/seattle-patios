@@ -11,26 +11,20 @@ export default function HeroSection() {
   return (
     <section
       data-hero
-      className="relative isolate overflow-hidden flex flex-col md:block"
+      className="relative isolate overflow-hidden flex flex-col md:block bg-patio-sky md:bg-transparent"
     >
-      {/* Background photo — full bleed behind everything */}
+      {/* Background photo — desktop only. On mobile the hero is a clean
+          patio-sky panel: the photo + leaves used to render behind the iOS
+          status bar mid-scroll ("a plant next to the time"), so on mobile we
+          drop them and let the solid sky color carry the hero — a sky-blue
+          slice behind the translucent status bar reads as nothing. */}
       <Image
         src="/images/header.png"
         alt=""
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[68%_30%] md:object-[center_top] -z-10"
-      />
-      {/* Mobile gradient overlays — top half gets a heavier light wash so the
-          dark headline + score legend stay legible against the photo; bottom
-          gets a dark wash so the white "Scroll for Patios" chevron pops. */}
-      <div
-        className="absolute inset-0 -z-10 pointer-events-none md:hidden"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(221,238,245,0.94) 0%, rgba(221,238,245,0.88) 30%, rgba(221,238,245,0.62) 50%, rgba(221,238,245,0.10) 65%, rgba(221,238,245,0) 75%), linear-gradient(180deg, rgba(28,35,52,0) 70%, rgba(28,35,52,0.55) 100%)",
-        }}
+        className="hidden md:block object-cover md:object-[center_top] -z-10"
       />
       {/* Desktop gradient — light wash from the left so the headline reads
           while the photo stays vibrant on the right. */}
@@ -42,14 +36,14 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Tropical leaves — peek in from the left edge of the hero */}
+      {/* Tropical leaves — desktop only (see note on the photo above). */}
       <Image
         src="/images/leaves.png"
         alt=""
         width={813}
         height={789}
         priority
-        className="pointer-events-none absolute left-0 bottom-0 w-[200px] sm:w-[220px] md:w-[260px] lg:w-[300px] -translate-x-[50%] translate-y-[6%] -z-[5]"
+        className="hidden md:block pointer-events-none absolute left-0 bottom-0 md:w-[260px] lg:w-[300px] -translate-x-[50%] translate-y-[6%] -z-[5]"
       />
 
       {/* Decorative cartoon sun — sits in the upper-right of the hero, behind the umbrella */}
