@@ -57,7 +57,10 @@ export default function SplitView({
     : "h-[calc(17vh+env(safe-area-inset-top))]";
 
   return (
-    <div data-splitview className="md:max-w-7xl md:mx-auto md:px-4 md:mt-2">
+    <div
+      data-splitview
+      className="md:max-w-7xl md:mx-auto md:px-4 md:mt-2 snap-start snap-always"
+    >
       <div className="relative flex flex-col md:flex-row md:gap-4 h-[100dvh] md:h-[calc(100dvh-52px)]">
         {/* Map - top on mobile, right on desktop. On mobile, the negative
             top margin (= -safe-area-inset-top) pulls the map up so it extends

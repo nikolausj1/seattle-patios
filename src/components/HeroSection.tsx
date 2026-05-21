@@ -11,7 +11,7 @@ export default function HeroSection() {
   return (
     <section
       data-hero
-      className="relative isolate overflow-hidden min-h-[100svh] md:min-h-0 flex flex-col md:block"
+      className="relative isolate overflow-hidden min-h-[100svh] md:min-h-0 flex flex-col md:block snap-start snap-always"
     >
       {/* Background photo — full bleed behind everything */}
       <Image
