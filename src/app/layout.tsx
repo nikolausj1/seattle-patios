@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,20 +14,12 @@ const inter = Inter({
   display: "swap",
 });
 
-// iOS Safari edge-to-edge:
-// - viewportFit=cover lets the page render under the status bar / URL bar
-//   instead of being inset into the safe area (so cards bleed off the bottom
-//   and the photo bleeds behind the top).
-// - No themeColor: setting one tints the Safari URL bar with a solid color,
-//   which reads as an opaque strip rather than the translucent bar showing
-//   the cards behind it. Letting Safari default to its translucent chrome
-//   gives the see-through effect we want.
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-};
-
+// No `viewport` export — Next.js defaults to
+// `width=device-width, initial-scale=1`. We deliberately do NOT set
+// `viewportFit: "cover"`: with cover, page content renders *behind* the
+// iOS status bar, which let the hero "peek" behind it after scrolling.
+// Without it, iOS insets the content below the status bar and the peek
+// is structurally impossible — matching the Seattle Visitor Guide.
 export const metadata: Metadata = {
   title: "Seattle Patio Vibes — Seattle's Best Patios, Ranked",
   description:

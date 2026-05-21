@@ -72,21 +72,3 @@ body {
   transition: all 0.2s ease;
 }
 
-/* Mobile: mandatory scroll-snap so the page can only ever rest on the hero
- * or on the map/list view — never in between, which is what produced the
- * "hero peeking behind the status bar" bug.
- *
- * An earlier attempt at this was reverted because the snap target moved
- * mid-scroll as iOS Safari's URL bar collapsed. That was caused by sizing
- * the hero in a *dynamic* viewport unit. The hero now uses `100svh` — the
- * SMALL viewport unit, which is a fixed value that does NOT change as the
- * URL bar shows/hides — so the SplitView's snap target (page-Y = hero
- * height) is stable and the old failure cause is gone.
- *
- * Snap targets: the hero <section> and the SplitView root both carry
- * `scroll-snap-align: start` + `scroll-snap-stop: always`. */
-@media (max-width: 767px) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
-}

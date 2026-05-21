@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef, useMemo } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 import type { Patio } from "@/types";
 import type { FilterKey } from "@/utils/filters";
 import { FILTERS, FILTER_BY_KEY, getFilterOrder, groupIntoTiers } from "@/utils/filters";
@@ -21,92 +21,6 @@ export default function InteractiveGuide({ patios }: InteractiveGuideProps) {
   );
 
   const activatedByClick = useRef(false);
-
-  // Scroll-end snap (mobile only). iOS Safari finger swipes routinely stop
-  // a little short of fully scrolling the hero off, leaving a sliver of the
-  // hero peeking behind the translucent status bar above the map.
-  //
-  // Trigger: the native `scrollend` event, which fires exactly once when iOS
-  // has finished ALL scrolling — momentum AND the URL-bar collapse animation.
-  // (The previous implementation polled for scroll-stability, but the URL-bar
-  // animation keeps emitting `scroll` events, so the poll never settled and
-  // the snap never ran.) `touchend` + a short settle-poll is kept as a
-  // fallback for engines without `scrollend`.
-  //
-  // Target: measured live from the SplitView's getBoundingClientRect — no
-  // dependence on a computed hero height that can drift as dvh changes.
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(min-width: 768px)").matches) return;
-
-    let snapping = false;
-    let snapCooldown: ReturnType<typeof setTimeout> | undefined;
-
-    const snapDecision = () => {
-      if (snapping) return;
-      const split = document.querySelector("[data-splitview]");
-      const hero = document.querySelector("[data-hero]");
-      if (!split || !hero) return;
-      const heroH = (hero as HTMLElement).offsetHeight;
-      // splitTop = distance from the viewport top to the SplitView's top edge.
-      //   > 0  → SplitView is below the fold; the hero occupies the top
-      //          `splitTop` px of the viewport (this is the peek).
-      //   <= 0 → SplitView already owns the viewport top — no peek.
-      const splitTop = split.getBoundingClientRect().top;
-      if (splitTop <= 0 || splitTop >= heroH) return; // already a clean state
-
-      // In between: snap to the nearer end. Forward bias — once the user is
-      // more than ~45% into the hero, commit them to the map/list view.
-      const forward = splitTop < heroH * 0.55;
-      const delta = forward ? splitTop : splitTop - heroH; // px to scroll by
-      if (Math.abs(delta) < 2) return;
-
-      snapping = true;
-      window.scrollBy({ top: delta, behavior: "smooth" });
-      if (snapCooldown) clearTimeout(snapCooldown);
-      snapCooldown = setTimeout(() => {
-        snapping = false;
-      }, 700);
-    };
-
-    const supportsScrollEnd = "onscrollend" in window;
-    if (supportsScrollEnd) {
-      window.addEventListener("scrollend", snapDecision, { passive: true });
-    }
-
-    // touchend fallback: after the finger lifts, momentum may continue, so
-    // poll until scrollY has been still for two 130ms ticks, then decide.
-    let settleTimer: ReturnType<typeof setTimeout> | undefined;
-    const onTouchEnd = () => {
-      if (settleTimer) clearTimeout(settleTimer);
-      let lastY = window.scrollY;
-      let still = 0;
-      const poll = () => {
-        const y = window.scrollY;
-        if (y === lastY) {
-          if (++still >= 2) {
-            snapDecision();
-            return;
-          }
-        } else {
-          still = 0;
-          lastY = y;
-        }
-        settleTimer = setTimeout(poll, 130);
-      };
-      settleTimer = setTimeout(poll, 130);
-    };
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-
-    return () => {
-      if (supportsScrollEnd) {
-        window.removeEventListener("scrollend", snapDecision);
-      }
-      window.removeEventListener("touchend", onTouchEnd);
-      if (settleTimer) clearTimeout(settleTimer);
-      if (snapCooldown) clearTimeout(snapCooldown);
-    };
-  }, []);
 
   // Current weather flags (current hour + next 2). Drives the filter chip
   // ordering: rainy → Covered to the front, cold → Heated to the front.
