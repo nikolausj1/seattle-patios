@@ -982,5 +982,35 @@
       "lat": 47.61,
       "lng": -122.337
     }
+  },
+  {
+    "id": "stoneburner",
+    "name": "Stoneburner",
+    "neighborhood": "Ballard",
+    "description": "Tucked into the ground floor of Hotel Ballard, this is one of the best perches on historic Ballard Ave. The covered, heated front patio puts you right on the sidewalk for prime people-watching, with windows that slide open to the street on warm days. The food is wood-fired Pacific Northwest meets Mediterranean — house-made pasta, blistered pizzas, and shareable plates — and the clover-shaped bar pours a serious wine and cocktail list. It's lively and a little rustic, equally good for a long dinner with friends or drinks while the avenue buzzes around you.",
+    "comeHereFor": "Wood-fired Mediterranean and people-watching on historic Ballard Ave",
+    "images": [
+      "/patios/stoneburner/01.webp"
+    ],
+    "scores": {
+      "sun": 68,
+      "food": 88,
+      "drink": 86,
+      "vibe": 87
+    },
+    "patioType": "streetside",
+    "sunDetails": "West-facing onto Ballard Ave NW, afternoon and early-evening sun",
+    "mealType": "both",
+    "heated": true,
+    "covered": true,
+    "dogFriendly": true,
+    "yelpUrl": "https://www.yelp.com/biz/stoneburner-seattle",
+    "websiteUrl": "https://www.stoneburnerseattle.com/",
+    "googleMapsUrl": "https://maps.google.com/?q=Stoneburner+Ballard+Seattle",
+    "address": "5214 Ballard Ave NW, Seattle, WA 98107",
+    "coordinates": {
+      "lat": 47.6657,
+      "lng": -122.3836
+    }
   }
 ]
